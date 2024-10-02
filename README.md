@@ -16,7 +16,7 @@ Current Version: 0.1
 
 Status: Testing with users
 
-Purpose: Binning_wf is metagenomic binning software and wrapper script that assembles, refines, quality-checks and assigns taxonomy to metagenome-assembled-genomes (MAGs), or bins. This is a DAGman workflow that is built to run on the [Center for High-Throughput Computing](https://chtc.cs.wisc.edu/). This workflow is suited to assembly high-quality microbial (archaeal, bacterial) genomes from high-throughput sequencing data (metagenomics).
+Purpose: Binning_wf is metagenomic binning software and wrapper script that assembles, refines, quality-checks and assigns taxonomy to metagenome-assembled-genomes (MAGs), or bins. This is a DAGman workflow that is built to run on the [Center for High-Throughput Computing](https://chtc.cs.wisc.edu/). This workflow is suited to assemble high-quality microbial (archaeal, bacterial) genomes from high-throughput sequencing data (metagenomics).
 The software requirements are, for each sample, assembled contigs, reads, and annotated scaffolds, and bins them.
 The software uses DAGman to scale analyses across hundreds of samples.
 
