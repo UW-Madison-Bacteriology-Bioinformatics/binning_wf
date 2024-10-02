@@ -37,4 +37,4 @@ PARENT Maxbin CHILD Refine
 PARENT Refine CHILD QA
 PARENT QA CHILD Taxonomy
 
-#SCRIPT POST Taxonomy ./scripts/clean_up.sh /staging/NETID/ PLACEHOLDER_WORD
+SCRIPT POST Taxonomy ./scripts/clean_up.sh /staging/NETID/ PLACEHOLDER_WORD
