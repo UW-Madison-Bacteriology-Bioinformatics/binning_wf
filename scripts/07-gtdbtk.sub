@@ -1,0 +1,27 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///projects/bacteriology_tran_data/apptainer/gtdbtk_v2.4.0.sif
+
+executable = 07-gtdbtk.sh
+
+transfer_input_files = 07-gtdbtk.sh
+
+arguments = $(location) $(sample) $(request_cpus) $(db)
+
+# Include other files that need to be transferred here.
+# transfer_input_files = other_job_files
+
+log = logs/gtdbtk_$(sample)_$(cluster)_$(process).log
+error = logs/gtdbtk_$(sample)_$(cluster)_$(process).err
+output = logs/gtdbtk_$(sample)_$(cluster)_$(process).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 20
+request_memory = 120GB
+request_disk = 50GB      
+
+queue
+#queue

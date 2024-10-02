@@ -1,0 +1,26 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///projects/bacteriology_tran_data/apptainer/maxbin2.sif
+
+executable = 04-maxbin2.sh
+arguments = $(location) $(sample) $(request_cpus)
+
+# Include other files that need to be transferred here.
+
+transfer_input_files = 04-maxbin2.sh
+
+log = logs/maxbin2_$(sample)_$(cluster)_$(process).log
+error = logs/maxbin2_$(sample)_$(cluster)_$(process).err
+output = logs/maxbin2_$(sample)_$(cluster)_$(process).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
++LongJob = True
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 50
+request_memory = 120GB
+request_disk = 100GB      
+
+#queue sample from samples_colette.txt
+queue

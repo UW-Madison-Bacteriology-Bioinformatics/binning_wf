@@ -1,0 +1,29 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+# this checkm2 container is downloaded from the usegalaxy.org website.
+container_image = file:///projects/bacteriology_tran_data/apptainer/checkm2_1.0.1--pyh7cba7a3_0
+
+executable = 06-checkm.sh
+arguments = $(location) $(sample) $(request_cpus) $(db)
+
+# Include other files that need to be transferred here.
+
+transfer_input_files = 06-checkm.sh
+
+log = logs/checkm_$(sample)_$(cluster)_$(process).log
+error = logs/checkm_$(sample)_$(cluster)_$(process).err
+output = logs/checkm_$(sample)_$(cluster)_$(process).out
+
+# make sure chtc projects is there because the Checkm database is there.
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 20
+request_memory = 16GB
+request_disk = 50GB    
+
+queue  
+
+#queue sample from samples_colette.txt
+

@@ -1,0 +1,25 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///projects/bacteriology_tran_data/apptainer/metabat2.sif
+
+executable = 02-generate_depths.sh
+arguments = $(location) $(sample)
+
+# Include other files that need to be transferred here.
+
+transfer_input_files = 02-generate_depths.sh
+
+log = logs/depths_$(sample)_$(cluster)_$(process).log
+error = logs/depths_$(sample)_$(cluster)_$(process).err
+output = logs/depths_$(sample)_$(cluster)_$(process).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 20
+request_memory = 64GB
+request_disk = 50GB      
+
+#queue sample from samples_colette.txt
+queue

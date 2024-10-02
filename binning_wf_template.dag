@@ -1,0 +1,40 @@
+### Binning Workflow Begins ###
+JOB Mapping ./scripts/01-bowtie.sub
+VARS Mapping sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB GetDepth ./scripts/02-generate_depths.sub
+VARS GetDepth sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB GetDepth2 ./scripts/02-generate_depths_maxbin2.sub
+VARS GetDepth2 sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB Metabat ./scripts/03-metabat.sub
+VARS Metabat sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB Maxbin ./scripts/04-maxbin2.sub
+VARS Maxbin sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB Refine ./scripts/05-dastool.sub
+VARS Refine sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/"
+
+JOB QA ./scripts/06-checkm.sub
+VARS QA sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/" db="CHECKM_DB"
+
+JOB Taxonomy ./scripts/07-gtdbtk.sub
+VARS Taxonomy sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/" db="GTDB_DB"
+
+# Set up the directories before running the first step, mapping.
+# Arguments are the base folder, and then the sample name
+SCRIPT PRE GetDepth ./scripts/set_up.sh /staging/NETID_PLACEHOLDER/ PLACEHOLDER_WORD
+
+### DAG ###
+PARENT Mapping CHILD GetDepth
+PARENT Mapping CHILD GetDepth2
+PARENT GetDepth CHILD Metabat
+PARENT GetDepth2 CHILD Maxbin
+PARENT Metabat CHILD Refine
+PARENT Maxbin CHILD Refine
+PARENT Refine CHILD QA
+PARENT QA CHILD Taxonomy
+
+#SCRIPT POST Taxonomy ./scripts/clean_up.sh /staging/NETID/ PLACEHOLDER_WORD

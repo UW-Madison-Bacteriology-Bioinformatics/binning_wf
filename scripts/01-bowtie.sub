@@ -1,0 +1,34 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///projects/bacteriology_tran_data/apptainer/bowtie2.sif
+
+executable = 01-bowtie.sh
+
+# $(location) $(sample) are set by the DAG
+# $(sample_reads) is set by the queue statement
+# $(request_cpus) is set by this sub file
+
+arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
+# Include other files that need to be transferred here.
+# transfer_input_files = other_job_files
+
+log = logs/bowtie_$(sample)_vs_$(sample_reads).log
+error = logs/bowtie_$(sample)_vs_$(sample_reads).err
+output = logs/bowtie_$(sample)_vs_$(sample_reads).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7)
++LongJob = True
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 16
+request_memory = 32GB
+request_disk = 1TB      
+
+# Out of 2704 jobs, it will submit 500 jobs at the time
+#max_idle = 500
+
+#queue sample,sample_reads from samples_pairs_one.txt
+#queue sample,sample_reads from samples_pairs.txt
+# sample_list.txt --> should be a 1 column list of 1 sample per row
+queue sample_reads from samples_colette.txt
