@@ -31,4 +31,4 @@ request_disk = 1TB
 #queue sample,sample_reads from samples_pairs_one.txt
 #queue sample,sample_reads from samples_pairs.txt
 # sample_list.txt --> should be a 1 column list of 1 sample per row
-queue sample_reads from samples_colette.txt
+queue sample_reads from samples_list.txt
