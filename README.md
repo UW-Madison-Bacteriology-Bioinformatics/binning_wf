@@ -10,15 +10,19 @@ Get Help: ptran5@wisc.edu | Patricia Tran
 Please view the full Notion tutorial for up-to-date instructions.
 
 # About this pipeline
-Program: Binning_wf
+**Program**: Binning_wf
 
-Current Version: 0.1
+**Current Version**: 0.1
 
-Status: Testing with users
+**Status**: Testing with researchers
 
-Purpose: Binning_wf is metagenomic binning software and wrapper script that assembles, refines, quality-checks and assigns taxonomy to metagenome-assembled-genomes (MAGs), or bins. This is a DAGman workflow that is built to run on the [Center for High-Throughput Computing](https://chtc.cs.wisc.edu/). This workflow is suited to assemble high-quality microbial (archaeal, bacterial) genomes from high-throughput sequencing data (metagenomics).
+**Scientific Purpose**: Binning_wf is metagenomic binning software and wrapper script that assembles, refines, quality-checks and assigns taxonomy to metagenome-assembled-genomes (MAGs), or bins. This workflow is suited to assemble high-quality microbial (archaeal, bacterial) genomes from high-throughput sequencing data (metagenomics).
 The software requirements are, for each sample, assembled contigs, reads, and annotated scaffolds, and bins them.
-The software uses DAGman to scale analyses across hundreds of samples.
+
+**Computing Technologies**: This is a DAGman workflow that is built to run on the [Center for High-Throughput Computing](https://chtc.cs.wisc.edu/). Therefore, it uses HTCondor to automatically identify remote machines into which each "job" can be run simultaneously. This enables us to scale analyses across hundreds of samples.
+Biologically, it was important that this pipeline performs all-vs-all mapping for each samples, which has been benchmarked to show that methods results in a higher number of mags, and of higher quality when compare to mapping to 1 sample only. I designed the DAGman such that it would manage job submission and remove uncessary files from `/staging` accordingly. This workflow utilizes Apptainer container images for reproducibility.
+
+**Intended users**: Researchers who metagenomics sequencing data (bulk environmental dna) and would like to reconstruct high-quality genomes from those datasets. This worfklow will be especially useful if you have many samples to process. You can save time by processing all your samples as the same time.
 
 # Description of files in this directory
 - `/scripts`: Scripts such as .sh and .sub files.
