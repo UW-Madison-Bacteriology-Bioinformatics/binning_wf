@@ -22,7 +22,7 @@ The software requirements are, for each sample, assembled contigs, reads, and an
 **Computing Technologies**: This is a DAGman workflow that is built to run on the [Center for High-Throughput Computing](https://chtc.cs.wisc.edu/). Therefore, it uses HTCondor to automatically identify remote machines into which each "job" can be run simultaneously. This enables us to scale analyses across hundreds of samples.
 Biologically, it was important that this pipeline performs all-vs-all mapping for each samples, which has been benchmarked to show that methods results in a higher number of mags, and of higher quality when compare to mapping to 1 sample only. I designed the DAGman such that it would manage job submission and remove uncessary files from `/staging` accordingly. This workflow utilizes Apptainer container images for reproducibility.
 
-**Intended users**: Researchers who metagenomics sequencing data (bulk environmental dna) and would like to reconstruct high-quality genomes from those datasets. This worfklow will be especially useful if you have many samples to process. You can save time by processing all your samples as the same time.
+**Intended users**: Researchers who have metagenomics sequencing data (bulk environmental dna) and would like to reconstruct high-quality genomes from those datasets. This worfklow will be especially useful if you have many samples to process. You can save time by processing all your samples as the same time.
 
 # Description of files in this directory
 - `/scripts`: Scripts such as .sh and .sub files.
