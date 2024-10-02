@@ -53,11 +53,11 @@ nano sample_list.txt
 bash create_custom_dag.sh sample_list.txt ptran5 binning_wf_template.dag 
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
-6. Create a logs folder for you CHTC log, err and out files.
+5. Create a logs folder for you CHTC log, err and out files.
 ```
 mkdir logs
 ```
-5.  Submit your job to chtc like usual!
+6. Submit your job to chtc like usual!
 ```
 condor_submit_dag ultimate_dag.dag
 condor_q -dag -nobatch
