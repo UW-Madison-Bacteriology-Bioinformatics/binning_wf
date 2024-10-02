@@ -35,13 +35,29 @@ The software uses DAGman to scale analyses across hundreds of samples.
 	- `create_custom_dag.sh` is a bash script that creates multiple dag for each of your samples.
 	- `create_main_dag.sh` is a bash script that creates a "super dag" to run all your "individual dags" at once, given the configuration in dagman.dag.
 
-# Quick Start Guide #
-1. have a list of samples (sample_list.txt) where each sample is a row.
+# Quick Start Guide 
+1. Log into CHTC
+2. Copy this directory and cd into it
+```
+git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git
+cd binning_wf
+```
+3. Create a list of samples named `sample_list.txt`.
+```
+nano sample_list.txt
+# write your samples
+# save and exit editor
+```
+4. Use the helper scripts and templates to create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
 ```
 bash create_custom_dag.sh sample_list.txt ptran5 binning_wf_template.dag 
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
-2.  Submit your job from the access point:
+6. Create a logs folder for you CHTC log, err and out files.
+```
+mkdir logs
+```
+5.  Submit your job to chtc like usual!
 ```
 condor_submit_dag ultimate_dag.dag
 condor_q -dag -nobatch
