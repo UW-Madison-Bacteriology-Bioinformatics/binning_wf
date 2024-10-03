@@ -5,7 +5,9 @@ Patricia Q. Tran, ptran5@wisc.edu, University of Wisconsin-Madison
 
 Date: October 2, 2024
 
-Get Help: ptran5@wisc.edu | Patricia Tran
+Get Help: 
+- For people at UW-Madison, please visit [the departmental bioinformatics research support service main website](bioinformatics.bact.wisc.edu) and make an 1-on-1 individual appointment
+- For external people, please submit an issue via the github page.
 
 Please view the full Notion tutorial for up-to-date instructions.
 
