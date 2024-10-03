@@ -68,3 +68,19 @@ mkdir logs
 condor_submit_dag ultimate_dag.dag
 condor_q -dag -nobatch
 ```
+
+# Citations
+If you find this software useful, please cite this GitHub Repository
+1. Tran, P. Q. (2024). Binning_WF DAGman (Version 1.0.0) [Computer software]. https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf/
+
+This workflow relies on the following softwares, please cite them as well in your work:
+1. Metabat:
+Kang DD, Li F, Kirton E, Thomas A, Egan R, An H, Wang Z. MetaBAT 2: an adaptive binning algorithm for robust and efficient genome reconstruction from metagenome assemblies. PeerJ. 2019 Jul 26;7:e7359. doi: 10.7717/peerj.7359. PMID: 31388474; PMCID: PMC6662567.
+2. Maxbin2:
+Yu-Wei Wu, Blake A. Simmons, Steven W. Singer, MaxBin 2.0: an automated binning algorithm to recover genomes from multiple metagenomic datasets, Bioinformatics, Volume 32, Issue 4, February 2016, Pages 605–607, https://doi.org/10.1093/bioinformatics/btv638
+3. DAS_Tool:
+Sieber, C.M.K., Probst, A.J., Sharrar, A. et al. Recovery of genomes from metagenomes via a dereplication, aggregation and scoring strategy. Nat Microbiol 3, 836–843 (2018). https://doi.org/10.1038/s41564-018-0171-1
+4. CheckM2:
+Chklovski, A., Parks, D.H., Woodcroft, B.J. et al. CheckM2: a rapid, scalable and accurate tool for assessing microbial genome quality using machine learning. Nat Methods 20, 1203–1212 (2023). https://doi.org/10.1038/s41592-023-01940-w
+5. GTDB-tk v.2.4.0
+Pierre-Alain Chaumeil, Aaron J Mussig, Philip Hugenholtz, Donovan H Parks, GTDB-Tk: a toolkit to classify genomes with the Genome Taxonomy Database, Bioinformatics, Volume 36, Issue 6, March 2020, Pages 1925–1927, https://doi.org/10.1093/bioinformatics/btz848
