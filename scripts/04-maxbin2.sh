@@ -65,6 +65,5 @@ rm ${SAMPLE}_*depth.txt
 rm ${SAMPLE}_*depth_2.txt
 rm ${SAMPLE}_maxbin2.*
 rm abund_list
-rm *bin.tar.gz
 echo "done"
 
