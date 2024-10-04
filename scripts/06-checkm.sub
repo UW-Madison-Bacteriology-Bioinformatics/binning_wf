@@ -4,7 +4,7 @@
 # this checkm2 container is downloaded from the usegalaxy.org website.
 container_image = file:///projects/bacteriology_tran_data/apptainer/checkm2_1.0.1--pyh7cba7a3_0
 
-executable = 06-checkm.sh
+executable = ./scripts/06-checkm.sh
 arguments = $(location) $(sample) $(request_cpus) $(db)
 
 # Include other files that need to be transferred here.

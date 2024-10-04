@@ -3,7 +3,7 @@
 # Provide HTCondor with the name of your .sif file and universe information
 container_image = file:///projects/bacteriology_tran_data/apptainer/gtdbtk_v2.4.0.sif
 
-executable = 07-gtdbtk.sh
+executable = ./scripts/07-gtdbtk.sh
 
 transfer_input_files = 07-gtdbtk.sh
 
