@@ -4,7 +4,7 @@
 # Provide HTCondor with the name of your .sif file and universe information
 container_image = file:///projects/bacteriology_tran_data/apptainer/dastool.sif
 
-executable = 05-dastool.sh
+executable = ./scripts/05-dastool.sh
 arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
