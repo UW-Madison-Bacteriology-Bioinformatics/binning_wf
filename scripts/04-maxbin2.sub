@@ -3,7 +3,7 @@
 # Provide HTCondor with the name of your .sif file and universe information
 container_image = file:///projects/bacteriology_tran_data/apptainer/maxbin2.sif
 
-executable = 04-maxbin2.sh
+executable = ./scripts/04-maxbin2.sh
 arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
