@@ -3,7 +3,7 @@
 # Provide HTCondor with the name of your .sif file and universe information
 container_image = file:///projects/bacteriology_tran_data/apptainer/metabat2.sif
 
-executable = 02-generate_depths.sh
+executable = ./scripts/02-generate_depths.sh
 arguments = $(location) $(sample)
 
 # Include other files that need to be transferred here.
