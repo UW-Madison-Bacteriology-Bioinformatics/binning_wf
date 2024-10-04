@@ -1,7 +1,7 @@
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-container_image = file:///projects/bacteriology_tran_data/apptainer/metabat2.sif
+container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/metabat2.sif
 
 executable = ./scripts/02-generate_depths.sh
 arguments = $(location) $(sample)
