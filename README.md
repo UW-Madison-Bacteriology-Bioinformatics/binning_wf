@@ -6,7 +6,7 @@ Patricia Q. Tran, ptran5@wisc.edu, University of Wisconsin-Madison
 Date: October 2, 2024
 
 Get Help: 
-- For people at UW-Madison, please visit [the departmental bioinformatics research support service main website](bioinformatics.bact.wisc.edu) and make an 1-on-1 individual appointment
+- For people at UW-Madison, please visit [the departmental bioinformatics research support service main website](bioinformatics.bact.wisc.edu). If you are part of the Department of Bacteriology please make an 1-on-1 individual appointment, others please attend one of my weekly office hours.
 - For external people, please submit an issue via the github page.
 
 Please view the full Notion tutorial for up-to-date instructions.
