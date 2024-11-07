@@ -41,6 +41,30 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 	- `create_custom_dag.sh` is a bash script that creates multiple dag for each of your samples.
 	- `create_main_dag.sh` is a bash script that creates a "super dag" to run all your "individual dags" at once, given the configuration in dagman.dag.
 
+# Docker containers
+I started adding Docker container images to DockerHub. Docker images can be converted into SIF (apptainer) images using:
+
+`apptainer build {image_output}.sif docker://{username}/{image}:{tag}`
+
+where anything in `{}` is a name of your choice.
+
+for example:
+
+`apptainer build dastool.sif docker://patriciatran/dastool:1.1.7`
+
+to test that the apptainer has been built correctly you try try:
+
+`apptainer shell -e dastool.sif`
+
+For more details about building containers please visit: https://github.com/UW-Madison-Bacteriology-Bioinformatics/chtc-containers
+
+- Bowtie: https://hub.docker.com/r/patriciatran/bowtie2
+- Metabat: https://hub.docker.com/r/patriciatran/metabat2
+- Maxbin2: https://hub.docker.com/r/patriciatran/maxbin2
+- DAStool: https://hub.docker.com/r/patriciatran/dastool
+- CheckM2: [to add]
+- GTDB-tk: [to add]
+
 # Quick Start Guide 
 1. Log into CHTC
 2. Copy this directory and cd into it
