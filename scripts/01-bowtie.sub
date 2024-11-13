@@ -11,7 +11,7 @@ executable = ./scripts/01-bowtie.sh
 
 arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
 
-transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://${location}/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam".
+transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://$(location)/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam".
 
 log = logs/bowtie_$(sample)_vs_$(sample_reads).log
 error = logs/bowtie_$(sample)_vs_$(sample_reads).err
