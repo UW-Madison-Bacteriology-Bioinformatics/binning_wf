@@ -67,10 +67,11 @@ For more details about building containers please visit: https://github.com/UW-M
 
 # Quick Start Guide 
 1. Log into CHTC
-2. Copy this directory and cd into it
+2. Copy this directory and cd into it, make the .sh script executable
 ```
 git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git
 cd binning_wf
+chmod +x scripts/*.sh
 ```
 3. Create a list of samples named `sample_list.txt`.
 ```
