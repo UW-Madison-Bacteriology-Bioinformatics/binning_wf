@@ -2,8 +2,8 @@
 
 # Creates folders
 
-#FOLDER="$1"
-#SAMPLE="$2"
+FOLDER="$1"
+SAMPLE="$2"
 
 echo "Folder: $FOLDER"
 echo "Sample: $SAMPLE"
