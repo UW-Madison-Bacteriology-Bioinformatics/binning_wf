@@ -9,6 +9,8 @@ arguments = $(location) $(sample) $(request_cpus)
 # Include other files that need to be transferred here.
 
 transfer_input_files = 04-maxbin2.sh
+should_transfer_files  = YES
+when_to_transfer_output = NEVER
 
 log = logs/maxbin2_$(sample)_$(cluster)_$(process).log
 error = logs/maxbin2_$(sample)_$(cluster)_$(process).err

@@ -9,6 +9,8 @@ arguments = $(location) $(sample) $(sample_list)
 # Include other files that need to be transferred here.
 
 transfer_input_files = 02-generate_depths_maxbin2.sh
+should_transfer_files  = YES
+when_to_transfer_output = NEVER
 
 log = logs/depths_maxbin_$(sample)_$(cluster)_$(process).log
 error = logs/depths_maxbin_$(sample)_$(cluster)_$(process).err

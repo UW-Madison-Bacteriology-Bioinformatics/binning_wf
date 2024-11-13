@@ -25,7 +25,7 @@ VARS Taxonomy sample="PLACEHOLDER_WORD" location="/staging/NETID_PLACEHOLDER/" d
 
 # Set up the directories before running the first step, mapping.
 # Arguments are the base folder, and then the sample name
-SCRIPT PRE GetDepth ./scripts/set_up.sh /staging/NETID_PLACEHOLDER/ PLACEHOLDER_WORD
+SCRIPT PRE Mapping ./scripts/set_up.sh /staging/NETID_PLACEHOLDER/ PLACEHOLDER_WORD
 
 ### DAG ###
 PARENT Mapping CHILD GetDepth

@@ -6,6 +6,11 @@ container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/
 executable = ./scripts/07-gtdbtk.sh
 
 transfer_input_files = 07-gtdbtk.sh
+should_transfer_files  = YES
+when_to_transfer_output = NEVER
+
+should_transfer_files = NO
+when_to_transfer_output = ON_EXIT_OR_EVICT
 
 arguments = $(location) $(sample) $(request_cpus) $(db)
 
