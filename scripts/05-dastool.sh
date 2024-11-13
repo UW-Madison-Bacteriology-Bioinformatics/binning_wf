@@ -51,7 +51,7 @@ ls
 
 echo "copy important file"
 cp -r ${SAMPLE}_refine_bins_DASTool_bins ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
-cp ${SAMPLE}_refine_bins_DASTool_summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
+#cp ${SAMPLE}_refine_bins_DASTool_summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
 
 echo "zipping the rest"
 tar czf ${SAMPLE}_refine_bins.tar.gz ${SAMPLE}_refine_bins*
