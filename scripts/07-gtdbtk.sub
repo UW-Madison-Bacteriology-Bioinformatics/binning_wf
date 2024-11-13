@@ -4,15 +4,10 @@
 container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/gtdbtk_v2.4.0.sif
 
 executable = ./scripts/07-gtdbtk.sh
-
-transfer_input_files = 07-gtdbtk.sh
-should_transfer_files  = YES
-when_to_transfer_output = NEVER
-
 arguments = $(location) $(sample) $(request_cpus) $(db)
 
-# Include other files that need to be transferred here.
-# transfer_input_files = other_job_files
+transfer_input_files = 07-gtdbtk.sh
+transfer_output_remaps = "gtdb_output/gtdbtk.ar53.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.ar53.summary.tsv;gtdb_output/gtdbtk.bac120.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.bac120.summary.tsv;$(sample)_gtdbtk_output.tar.gz=file://$(location)/binning_wf/$(sample)/bins/taxonomy/$(sample)_gtdbtk_output.tar.gz"
 
 log = logs/gtdbtk_$(sample)_$(cluster)_$(process).log
 error = logs/gtdbtk_$(sample)_$(cluster)_$(process).err

@@ -23,6 +23,6 @@ ls -lh
 head -n 5 ${SAMPLE}_depth_all.txt
 echo "done calculating depths"
 
-mv ${SAMPLE}_depth_all.txt ${FOLDER}/binning_wf/${SAMPLE}/depths/.
+#mv ${SAMPLE}_depth_all.txt ${FOLDER}/binning_wf/${SAMPLE}/depths/.
 
 echo "done"

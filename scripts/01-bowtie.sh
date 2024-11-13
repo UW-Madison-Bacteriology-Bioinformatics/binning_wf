@@ -64,7 +64,7 @@ echo "Move to staging"
 mkdir -p ${FOLDER}/binning_wf/
 mkdir -p ${FOLDER}/binning_wf/mapping/
 
-mv ./${SAMPLE}_vs_${SAMPLE_READS}.sorted.bam ${FOLDER}/binning_wf/mapping/.
+#mv ./${SAMPLE}_vs_${SAMPLE_READS}.sorted.bam ${FOLDER}/binning_wf/mapping/.
 
 echo "rm extra files"
 rm ${SAMPLE}_vs_${SAMPLE_READS}.sam

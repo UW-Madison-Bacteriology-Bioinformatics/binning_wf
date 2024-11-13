@@ -43,5 +43,5 @@ cp checkm_out/quality_report.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/QA/${SAMPLE
 
 echo "zip and move the rest"
 tar -czvf ${SAMPLE}_checkm_out.tar.gz checkm_out
-mv ${SAMPLE}_checkm_out.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/QA/.
+#mv ${SAMPLE}_checkm_out.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/QA/.
 echo "done"

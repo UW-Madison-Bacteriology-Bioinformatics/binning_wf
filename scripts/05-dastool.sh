@@ -56,7 +56,7 @@ cp ${SAMPLE}_refine_bins_DASTool_summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins
 echo "zipping the rest"
 tar czf ${SAMPLE}_refine_bins.tar.gz ${SAMPLE}_refine_bins*
 echo "moving the rest"
-mv ${SAMPLE}_refine_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
+#mv ${SAMPLE}_refine_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
 
 echo "remove extra files"
 rm ${SAMPLE}_scaffolds.fasta

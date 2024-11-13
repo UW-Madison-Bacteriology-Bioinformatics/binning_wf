@@ -25,10 +25,10 @@ gtdbtk classify_wf --genome_dir genomes/ \
 	--skip_ani_screen \
 	-x fa
 
-echo "move important files"
-cp gtdb_output/gtdbtk.ar53.summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.
-cp gtdb_output/gtdbtk.bac120.summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.
+#echo "move important files"
+#cp gtdb_output/gtdbtk.ar53.summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.
+#cp gtdb_output/gtdbtk.bac120.summary.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.
 
 echo "zip and move the rest"
 tar czf ${SAMPLE}_gtdbtk_output.tar.gz gtdb_output
-mv ${SAMPLE}_gtdbtk_output.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.
+#mv ${SAMPLE}_gtdbtk_output.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy/.

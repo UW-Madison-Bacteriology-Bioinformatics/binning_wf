@@ -10,8 +10,7 @@ arguments = $(location) $(sample) $(request_cpus)
 # Include other files that need to be transferred here.
 
 transfer_input_files = 05-dastool.sh
-should_transfer_files  = YES
-when_to_transfer_output = NEVER
+transfer_output_remaps = "$(sample)_refine_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/refined/$(sample)_refine_bins.tar.gz"
 
 log = logs/dastool_$(sample)_$(cluster)_$(process).log
 error = logs/dastool_$(sample)_$(cluster)_$(process).err

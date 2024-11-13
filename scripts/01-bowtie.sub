@@ -10,11 +10,8 @@ executable = ./scripts/01-bowtie.sh
 # $(request_cpus) is set by this sub file
 
 arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
-# Include other files that need to be transferred here.
-# transfer_input_files = other_job_files
 
-should_transfer_files  = YES
-when_to_transfer_output = NEVER
+transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://${location}/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam".
 
 log = logs/bowtie_$(sample)_vs_$(sample_reads).log
 error = logs/bowtie_$(sample)_vs_$(sample_reads).err

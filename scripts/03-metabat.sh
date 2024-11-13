@@ -33,8 +33,8 @@ rm ${SAMPLE}_depth_all.txt
 
 echo "zipping"
 tar czf ${SAMPLE}_metabat2_bins.tar.gz bins_dir
-echo "moving"
-mv ${SAMPLE}_metabat2_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/.
+#echo "moving"
+#mv ${SAMPLE}_metabat2_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/.
 
 echo "done"
 

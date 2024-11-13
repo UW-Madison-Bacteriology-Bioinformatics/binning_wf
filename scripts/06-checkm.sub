@@ -10,8 +10,7 @@ arguments = $(location) $(sample) $(request_cpus) $(db)
 # Include other files that need to be transferred here.
 
 transfer_input_files = 06-checkm.sh
-should_transfer_files  = YES
-when_to_transfer_output = NEVER
+transfer_output_remaps = "$(sample)_checkm_out.tar.gz=file://$(folder)/binning_wf/$(sample)/bins/QA/$(sample)_checkm_out.tar.gz"
 
 log = logs/checkm_$(sample)_$(cluster)_$(process).log
 error = logs/checkm_$(sample)_$(cluster)_$(process).err
