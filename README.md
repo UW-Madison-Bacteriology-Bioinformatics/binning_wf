@@ -26,6 +26,10 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 
 **Intended users**: Researchers who have metagenomics sequencing data (bulk environmental dna) and would like to reconstruct high-quality genomes from those datasets. This worfklow will be especially useful if you have many samples to process. You can save time by processing all your samples as the same time.
 
+# Workflow design
+![Blank diagram](https://github.com/user-attachments/assets/93816abc-e625-4d21-9ce5-f95bf7046c38)
+
+
 # Description of files in this directory
 - `/scripts`: Scripts such as .sh and .sub files.
 - (to do) Apptainer container images are located in `containers/`
