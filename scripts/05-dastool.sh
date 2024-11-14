@@ -55,18 +55,6 @@ cp -r ${SAMPLE}_refine_bins_DASTool_bins ${FOLDER}/binning_wf/${SAMPLE}/bins/ref
 
 echo "zipping the rest"
 tar czf ${SAMPLE}_refine_bins.tar.gz ${SAMPLE}_refine_bins*
-echo "moving the rest"
-#mv ${SAMPLE}_refine_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/.
-
-echo "remove extra files"
-rm ${SAMPLE}_scaffolds.fasta
-rm ${SAMPLE}.faa
-rm ${SAMPLE}.faa.*
-rm ${SAMPLE}_metabat2_bins.tar.gz
-rm ${SAMPLE}_maxbin2_bins.tar.gz
-rm ${SAMPLE}_refine_bins.*
-rm ${SAMPLE}_refine_bins_*
-rm scaf2bin_*.tsv
 
 echo "done"
 

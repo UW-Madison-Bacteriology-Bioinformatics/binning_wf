@@ -38,10 +38,7 @@ MQ=$((count-HQ)); echo $MQ
 echo "make a list of mag names"
 awk '{ if ($2 >= 50 && $3 < 10) print $1 }' checkm_out/quality_report.tsv > checkm_out/${SAMPLE}_mhq_mags.txt
 
-#echo "copy important files"
-#cp checkm_out/quality_report.tsv ${FOLDER}/binning_wf/${SAMPLE}/bins/QA/${SAMPLE}_quality_report.tsv
 
 echo "zip files"
 tar -czvf ${SAMPLE}_checkm_out.tar.gz checkm_out
-#mv ${SAMPLE}_checkm_out.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/QA/.
 echo "done"

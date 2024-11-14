@@ -13,6 +13,7 @@ echo "Sample: $SAMPLE"
 echo "making directories"
 
 mkdir -p ${FOLDER}/binning_wf/
+mkdir -p ${FOLDER}/binning_wf/mapping/
 mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/
 mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/depths/
 mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/

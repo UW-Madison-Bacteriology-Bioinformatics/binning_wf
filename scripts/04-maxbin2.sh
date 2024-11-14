@@ -56,14 +56,6 @@ echo "dir contents: "$(ls)
 echo "zipping and moving"
 # Note: Maxbin creates files with the extension .fasta rather than .fa as in metabat2.
 tar cvzf ${SAMPLE}_maxbin2_bins.tar.gz ${SAMPLE}_maxbin2.summary ${SAMPLE}_maxbin2.marker ${SAMPLE}_maxbin2.marker_of_each_bin.tar.gz ${SAMPLE}_maxbin2.*.fasta
-#echo "moving"
-#mv ${SAMPLE}_maxbin2_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/maxbin2/.
 
-echo "remove extra files"
-rm ${SAMPLE}_scaffolds.fasta
-rm ${SAMPLE}_*depth.txt
-rm ${SAMPLE}_*depth_2.txt
-rm ${SAMPLE}_maxbin2.*
-rm abund_list
 echo "done"
 

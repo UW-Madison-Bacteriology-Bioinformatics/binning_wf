@@ -22,19 +22,7 @@ echo "done binning"
 echo "count bins:"
 ls bins_dir/${SAMPLE}_metabat2_bin* |wc -l
 
-# zip and move:
-echo "rm extra files"
-rm ${SAMPLE}_scaffolds.fasta
-rm ${SAMPLE}_depth_all.txt
-
-#echo "create output folder"
-#mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/
-#mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/
-
 echo "zipping"
 tar czf ${SAMPLE}_metabat2_bins.tar.gz bins_dir
-#echo "moving"
-#mv ${SAMPLE}_metabat2_bins.tar.gz ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/.
-
 echo "done"
 

@@ -57,17 +57,3 @@ ls
 echo "Convert sam to sorted bam format"
 samtools sort ./${SAMPLE}_vs_${SAMPLE_READS}.sam -o ./${SAMPLE}_vs_${SAMPLE_READS}.sorted.bam
 ls
-
-# Move to staging
-echo "Move to staging"
-
-mkdir -p ${FOLDER}/binning_wf/
-mkdir -p ${FOLDER}/binning_wf/mapping/
-
-#mv ./${SAMPLE}_vs_${SAMPLE_READS}.sorted.bam ${FOLDER}/binning_wf/mapping/.
-
-echo "rm extra files"
-rm ${SAMPLE}_vs_${SAMPLE_READS}.sam
-echo "done"
-
-

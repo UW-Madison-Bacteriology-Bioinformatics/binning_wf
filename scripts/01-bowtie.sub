@@ -15,7 +15,7 @@ transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://$(locat
 
 log = logs/bowtie_$(sample)_vs_$(sample_reads).log
 error = logs/bowtie_$(sample)_vs_$(sample_reads).err
-output = logs/bowtie_$(sample)_vs_$(sample_reads).out
+output = $(location)/bowtie_$(sample)_vs_$(sample_reads).out
 
 requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7)
 +LongJob = True
