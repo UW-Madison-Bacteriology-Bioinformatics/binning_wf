@@ -102,8 +102,13 @@ nano sample_list.txt
 # save and exit editor
 ```
 4. Use the helper scripts and templates to create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
+Usage: `bash create_custom_dag.sh <samples_list> <netid> <template_dag_file>`
+Usage: `bash create_main_dag.sh <list of samples> <output_file>`
+
+For example (change path of checkm and path of GTDB of your choice) (make sure you are using the correct DB versions).
 ```
-bash create_custom_dag.sh sample_list.txt ptran5 binning_wf_template.dag 
+bash create_custom_dag.sh sample_list.txt ptran5 /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd /projects/bacteriology_tran_data/gtdbtk_v220/
+
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
 5. Create a logs folder for you CHTC log, err and out files.
