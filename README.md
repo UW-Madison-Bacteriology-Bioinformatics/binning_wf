@@ -69,7 +69,25 @@ For more details about building containers please visit: https://github.com/UW-M
 - CheckM2: [to add]
 - GTDB-tk: [to add]
 
-# Quick Start Guide 
+# Quick-start guide
+## Preparing input files & folder directory
+
+You will first need access to a `/staging/netid` folder. For more information about /staging folders, please visit: https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata . The `/staging` folder will be used for the large genomic input files, and the large genomic output files.
+
+In your request, please consider your input files (how many samples will you have, have the size of all your reads and assembled data, as well as your output files)
+
+The pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `Trimmomatic`, assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the `spades` corrected trimmed reads with this file name format : `${SAMPLE_READS}.1P.fastq00.0_0.cor.fastq.gz` or `${SAMPLE_READS}.2P.fastq00.0_0.cor.fastq.gz`
+
+Once you have preprocessed your data, please organize them in the following manner:
+```
+/staging/netID
+/staging/netID/preprocessing/assembly/${sample}_scaffolds.fasta
+/staging/netID/preprocessing/assembly/reads/*.fastq.gz # [both directions]
+/staging/netID/preprocessing/annotation/${sample}.faa
+```
+The `binning_wf` expects this folder structure to access the assembled data, cleaned up reads, and faa files.
+
+## Instructions
 1. Log into CHTC
 2. Copy this directory and cd into it, make the .sh script executable
 ```
