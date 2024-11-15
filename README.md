@@ -102,10 +102,13 @@ nano sample_list.txt
 # save and exit editor
 ```
 4. Use the helper scripts and templates to create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
-Usage: `bash create_custom_dag.sh <samples_list> <netid> <template_dag_file>`
+   
+Usage: `bash create_custom_dag.sh <samples_list> <netid> <path to checkm DB> <path to GTDB database>`
+
 Usage: `bash create_main_dag.sh <list of samples> <output_file>`
 
-For example (change path of checkm and path of GTDB of your choice) (make sure you are using the correct DB versions).
+For example (change path of checkm and path of GTDB of your choice) (make sure you are using the correct DB versions). If you are at UW-Madison and would like me to add your to the `/projects/bacteriology_tran_data` simply send me an email! No need to redownload the whole database yourself. 
+
 ```
 bash create_custom_dag.sh sample_list.txt ptran5 /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd /projects/bacteriology_tran_data/gtdbtk_v220/
 
