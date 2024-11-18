@@ -13,7 +13,6 @@ echo "Sample: $SAMPLE"
 
 # JGI Depth:
 echo "how many bam files?"
-${FOLDER}/binning_wf/mapping/.
 ls -lh ${FOLDER}/binning_wf/mapping/${SAMPLE}_*.bam | wc -l
 
 # Metabat2 takes 1 single table where each row is a contig, and each column is a sample
