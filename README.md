@@ -126,7 +126,7 @@ condor_q -dag -nobatch
 
 # Citations
 If you find this software useful, please cite this GitHub Repository
-1. Tran, P. Q. (2024). Binning_WF DAGman (Version 1.0.0) [Computer software]. https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf/
+1. Tran, P. Q. (2024). Binning_WF DAGman (Version 0.1) [Computer software]. https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf/
 
 This workflow relies on the following softwares, please cite them as well in your work:
 1. Metabat:
