@@ -1,16 +1,3 @@
-# Binning_wf
-
-# Author:
-Patricia Q. Tran, ptran5@wisc.edu, University of Wisconsin-Madison
-
-Date: October 2, 2024
-
-Get Help: 
-- For people at UW-Madison, please visit [the departmental bioinformatics research support service main website](bioinformatics.bact.wisc.edu). If you are part of the Department of Bacteriology please make an 1-on-1 individual appointment, others please attend one of my weekly office hours.
-- For external people, please submit an issue via the github page.
-
-Please view the full Notion tutorial for up-to-date instructions.
-
 # About this pipeline
 **Program**: Binning_wf
 
@@ -139,3 +126,10 @@ Sieber, C.M.K., Probst, A.J., Sharrar, A. et al. Recovery of genomes from metage
 Chklovski, A., Parks, D.H., Woodcroft, B.J. et al. CheckM2: a rapid, scalable and accurate tool for assessing microbial genome quality using machine learning. Nat Methods 20, 1203–1212 (2023). https://doi.org/10.1038/s41592-023-01940-w
 5. GTDB-tk v.2.4.0
 Pierre-Alain Chaumeil, Aaron J Mussig, Philip Hugenholtz, Donovan H Parks, GTDB-Tk: a toolkit to classify genomes with the Genome Taxonomy Database, Bioinformatics, Volume 36, Issue 6, March 2020, Pages 1925–1927, https://doi.org/10.1093/bioinformatics/btz848
+
+# More information
+Patricia Q. Tran, ptran5@wisc.edu, University of Wisconsin-Madison
+Get Help: 
+- For people at UW-Madison, please visit [the departmental bioinformatics research support service main website](bioinformatics.bact.wisc.edu). If you are part of the Department of Bacteriology please make an 1-on-1 individual appointment, others please attend one of my weekly office hours.
+- For external people, please submit an issue via the github page.
+
