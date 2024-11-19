@@ -11,6 +11,7 @@ executable = ./scripts/01-bowtie.sh
 
 arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
 
+transfer_output_files = $(sample)_vs_$(sample_reads).sorted.bam
 transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://$(location)/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam"
 
 log = logs/bowtie_$(sample)_vs_$(sample_reads).log
@@ -32,7 +33,4 @@ request_disk = 4GB
 # Out of 2704 jobs, it will submit 500 jobs at the time
 #max_idle = 500
 
-#queue sample,sample_reads from samples_pairs_one.txt
-#queue sample,sample_reads from samples_pairs.txt
-# sample_list.txt --> should be a 1 column list of 1 sample per row
 queue sample_reads from sample_list.txt

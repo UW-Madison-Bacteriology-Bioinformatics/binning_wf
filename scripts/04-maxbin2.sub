@@ -7,8 +7,7 @@ executable = ./scripts/04-maxbin2.sh
 arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
-
-transfer_input_files = 04-maxbin2.sh
+transfer_output_files = $(sample)_maxbin2_bins.tar.gz
 transfer_output_remaps = "$(sample)_maxbin2_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/maxbin2/$(sample)_maxbin2_bins.tar.gz"
 
 log = logs/maxbin2_$(sample)_$(cluster)_$(process).log

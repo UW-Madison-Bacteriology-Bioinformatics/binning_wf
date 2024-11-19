@@ -8,7 +8,7 @@ arguments = $(location) $(sample) $(sample_list)
 
 # Include other files that need to be transferred here.
 
-transfer_input_files = 02-generate_depths_maxbin2.sh
+transfer_output_files = $(sample)_vs_$(sample_list).depth.txt
 transfer_output_remaps = "$(sample)_vs_$(sample_list).depth.txt=file://$(location)/binning_wf/$(sample)/depths/$(sample)_vs_$(sample_list).depth.txt"
 
 log = logs/depths_maxbin_$(sample)_$(cluster)_$(process).log

@@ -8,8 +8,7 @@ executable = ./scripts/06-checkm.sh
 arguments = $(location) $(sample) $(request_cpus) $(db)
 
 # Include other files that need to be transferred here.
-
-transfer_input_files = 06-checkm.sh
+transfer_output_files = $(sample)_checkm_out.tar.gz, checkm_out/quality_report.tsv
 transfer_output_remaps = "$(sample)_checkm_out.tar.gz=file://$(folder)/binning_wf/$(sample)/bins/QA/$(sample)_checkm_out.tar.gz;checkm_out/quality_report.tsv=file://$(location)/binning_wf/$(sample)/bins/QA/$(sample)_quality_report.tsv"
 
 log = logs/checkm_$(sample)_$(cluster)_$(process).log

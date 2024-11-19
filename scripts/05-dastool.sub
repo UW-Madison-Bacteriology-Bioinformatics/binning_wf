@@ -9,7 +9,7 @@ arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
 
-transfer_input_files = 05-dastool.sh
+transfer_output_files = $(sample)_refine_bins.tar.gz, $(sample)_refine_bins_DASTool_summary.tsv, $(sample)_refine_bins_DASTool_summary.tsv
 transfer_output_remaps = "$(sample)_refine_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/refined/$(sample)_refine_bins.tar.gz;$(sample)_refine_bins_DASTool_summary.tsv=file://$(location)/binning_wf/$(sample)/bins/refined/$(sample)_refine_bins_DASTool_summary.tsv"
 
 log = logs/dastool_$(sample)_$(cluster)_$(process).log

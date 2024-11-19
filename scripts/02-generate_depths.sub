@@ -8,7 +8,7 @@ arguments = $(location) $(sample)
 
 # Include other files that need to be transferred here.
 
-transfer_input_files = 02-generate_depths.sh
+transfer_output_files = $(sample)_depth_all.txt
 transfer_output_remaps = "$(sample)_depth_all.txt=file://$(location)/binning_wf/$(sample)/depths/$(sample)_depth_all.txt"
 
 log = logs/depths_$(sample)_$(cluster)_$(process).log
