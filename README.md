@@ -1,3 +1,7 @@
+![Status - Testing](https://img.shields.io/badge/Status-Testing-2ea44f)
+![Version - pre-release](https://img.shields.io/badge/Version-pre--release-af7777)
+[![Documentation - Quick-start](https://img.shields.io/badge/Documentation-Quick--start-57e8ad)](https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf?tab=readme-ov-file#quick-start-guide)
+
 # About this pipeline
 **Program**: Binning_wf
 
