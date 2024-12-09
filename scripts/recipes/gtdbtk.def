@@ -1,0 +1,5 @@
+Bootstrap: docker
+From: ecogenomic/gtdbtk:2.4.0
+
+%environment
+	export GTDBTK_DATA_PATH="/projects/bacteriology_tran_data/gtdbtk_v220/release220"

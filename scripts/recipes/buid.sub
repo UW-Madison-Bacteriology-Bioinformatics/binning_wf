@@ -1,0 +1,21 @@
+# build.sub
+# For building an Apptainer container
+
+universe = vanilla
+log = build.log
+
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
+# If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
+transfer_input_files = bowtie2.def, metabat2.def, maxbin2.def, dastool.def, gtdbtk.def
+
+requirements = (HasCHTCStaging == true)
+
++IsBuildJob = true
+request_cpus = 4
+request_memory = 8GB
+request_disk = 32GB
+
+queue

@@ -1,0 +1,5 @@
+Bootstrap: docker
+From: continuumio/miniconda3:24.7.1-0
+
+%post
+        conda install -c conda-forge -c bioconda bowtie2=2.5.4 samtools

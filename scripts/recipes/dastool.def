@@ -1,0 +1,8 @@
+Bootstrap: docker
+From: continuumio/miniconda3:24.7.1-0
+
+%post
+	conda config --add channels defaults
+	conda config --add channels bioconda
+	conda config --add channels conda-forge
+	conda install -c bioconda das_tool=1.1.7
