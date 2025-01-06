@@ -12,7 +12,7 @@ mkdir genomes
 cp ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/${SAMPLE}_refine_bins_DASTool_bins/*.fa genomes/.
 
 echo "making tmp folder"
-mkdir tmp
+mkdir -p tmp
 
 echo "print checkm2 help"
 checkm2 -h
