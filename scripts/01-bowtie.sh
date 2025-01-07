@@ -16,7 +16,7 @@ echo "copy data to working directory"
 mkdir data
 mv ${SAMPLE}_scaffolds.fasta data/.
 mv ${SAMPLE}_R.non.host.R1.fastq.gz data/.
-mv ${SAMPLE}_R.non.host.R1.fastq.gz data/.
+mv ${SAMPLE}_R.non.host.R2.fastq.gz data/.
 
 ls -lh data/*
 ls
