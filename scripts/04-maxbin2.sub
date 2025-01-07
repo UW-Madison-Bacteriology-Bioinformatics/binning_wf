@@ -7,7 +7,7 @@ executable = ./scripts/04-maxbin2.sh
 arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
-transfer_input_files = $(folder)/binning_wf/$(sample)/depths/$(sample)_vs_*.txt, $(folder)/preprocessing/assembly/$(sample)_scaffolds.fasta
+transfer_input_files = file://$(location)/binning_wf/$(sample)/depths/$(sample)_vs_*.txt, file://$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta
 transfer_output_files = $(sample)_maxbin2_bins.tar.gz
 transfer_output_remaps = "$(sample)_maxbin2_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/maxbin2/$(sample)_maxbin2_bins.tar.gz"
 
