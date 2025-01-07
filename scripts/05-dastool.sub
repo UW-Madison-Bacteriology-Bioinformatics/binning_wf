@@ -8,7 +8,7 @@ executable = ./scripts/05-dastool.sh
 arguments = $(location) $(sample) $(request_cpus)
 
 # Include other files that need to be transferred here.
-transfer_input_files = $(location)/binning_wf/$(sample)/bins/metabat2/$(sample)_metabat2_bins.tar.gz,$(location)/binning_wf/$(sample)/bins/maxbin2/$(sample)_maxbin2_bins.tar.gz,$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,$(location)/preprocessing/annotation/$(sample).faa
+transfer_input_files = $(location)/binning_wf/$(sample)/bins/metabat2/$(sample)_metabat2_bins.tar.gz,$(location)/binning_wf/$(sample)/bins/maxbin2/$(sample)_maxbin2_bins.tar.gz,$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,$(location)/preprocessing/annotation/$(sample)_scaffolds_proteins.faa
 transfer_output_files = $(sample)_refine_bins.tar.gz, $(sample)_refine_bins_DASTool_summary.tsv, $(sample)_refine_bins_DASTool_summary.tsv
 transfer_output_remaps = "$(sample)_refine_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/refined/$(sample)_refine_bins.tar.gz;$(sample)_refine_bins_DASTool_summary.tsv=file://$(location)/binning_wf/$(sample)/bins/refined/$(sample)_refine_bins_DASTool_summary.tsv"
 
