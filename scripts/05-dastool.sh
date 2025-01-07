@@ -40,7 +40,7 @@ DAS_Tool -h
 DAS_Tool -i scaf2bin_metabat2.tsv,scaf2bin_maxbin2.tsv \
         -c ${SAMPLE}_scaffolds.fasta \
         -o ${SAMPLE}_refine_bins \
-        -p ${SAMPLE}.faa \
+        -p ${SAMPLE}_scaffolds_proteins.faa \
         -l metabat2,maxbin2 \
         -t ${CPU} \
         --write_bins \
