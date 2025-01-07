@@ -55,7 +55,7 @@ Once you have preprocessed your data, please organize them in the following mann
 /staging/netID
 /staging/netID/preprocessing/assembly/${sample}_scaffolds.fasta
 /staging/netID/preprocessing/assembly/reads/*.fastq.gz # [both directions]
-/staging/netID/preprocessing/annotation/${sample}.faa
+/staging/netID/preprocessing/annotation/${sample}_scaffolds_proteins.faa
 ```
 The `binning_wf` expects this folder structure to access the assembled data, cleaned up reads, and faa files.
 
