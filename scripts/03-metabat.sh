@@ -8,8 +8,6 @@ metabat2 -h
 echo "copy data"
 FOLDER="$1"
 SAMPLE="$2"
-cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta .
-cp ${FOLDER}/binning_wf/${SAMPLE}/depths/${SAMPLE}_depth_all.txt .
 ls
 echo "finished copying data"
 

@@ -14,9 +14,9 @@ echo "cpus: $CPUS"
 # copy data to working directory:
 echo "copy data to working directory"
 mkdir data
-cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta data/.
-cp ${FOLDER}/preprocessing/assembly/reads/${SAMPLE_READS}.1P.fastq00.0_0.cor.fastq.gz data/.
-cp ${FOLDER}/preprocessing/assembly/reads/${SAMPLE_READS}.2P.fastq00.0_0.cor.fastq.gz data/.
+mv ${SAMPLE}_scaffolds.fasta data/.
+mv ${SAMPLE}_R.non.host.R1.fastq.gz data/.
+mv ${SAMPLE}_R.non.host.R1.fastq.gz data/.
 
 ls -lh data/*
 ls

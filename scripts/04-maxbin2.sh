@@ -11,8 +11,8 @@ echo "print help"
 run_MaxBin.pl -h
 
 echo "copy files over"
-cp  ${FOLDER}/binning_wf/${SAMPLE}/depths/${SAMPLE}_vs_*.txt .
-cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta .
+#cp ${FOLDER}/binning_wf/${SAMPLE}/depths/${SAMPLE}_vs_*.txt .
+#cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta .
 
 echo "how many txt files? "$(ls -lht *.txt | wc)
 

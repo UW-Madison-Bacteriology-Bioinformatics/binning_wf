@@ -8,10 +8,10 @@ CPU="$3"
 
 # Use it on the real data
 echo "copy files"
-cp ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/${SAMPLE}_metabat2_bins.tar.gz .
-cp ${FOLDER}/binning_wf/${SAMPLE}/bins/maxbin2/${SAMPLE}_maxbin2_bins.tar.gz .
-cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta .
-cp ${FOLDER}/preprocessing/annotation/${SAMPLE}.faa .
+#cp ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/${SAMPLE}_metabat2_bins.tar.gz .
+#cp ${FOLDER}/binning_wf/${SAMPLE}/bins/maxbin2/${SAMPLE}_maxbin2_bins.tar.gz .
+#cp ${FOLDER}/preprocessing/assembly/${SAMPLE}_scaffolds.fasta .
+#cp ${FOLDER}/preprocessing/annotation/${SAMPLE}.faa .
 
 # Unzip mags
 tar -xvzf ${SAMPLE}_metabat2_bins.tar.gz

@@ -7,7 +7,7 @@ executable = ./scripts/03-metabat.sh
 arguments = $(location) $(sample)
 
 # Include other files that need to be transferred here.
-
+transfer_input_files = $(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,$(location)/binning_wf/$(sample)/depths/$(sample)_depth_all.txt
 transfer_output_files = $(sample)_metabat2_bins.tar.gz
 transfer_output_remaps = "$(sample)_metabat2_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/metabat2/$(sample)_metabat2_bins.tar.gz"
 

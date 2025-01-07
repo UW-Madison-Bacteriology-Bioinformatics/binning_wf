@@ -11,6 +11,7 @@ executable = ./scripts/01-bowtie.sh
 
 arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
 
+transfer_input_files = $(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,$(location)/preprocessing/assembly/reads/$(sample)_R.non.host.R1.fastq.gz,$(location)/preprocessing/assembly/reads/$(sample)_R.non.host.R1.fastq.gz
 transfer_output_files = $(sample)_vs_$(sample_reads).sorted.bam
 transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://$(location)/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam"
 
