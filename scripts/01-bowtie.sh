@@ -15,8 +15,8 @@ echo "cpus: $CPUS"
 echo "copy data to working directory"
 mkdir data
 mv ${SAMPLE}_scaffolds.fasta data/.
-mv ${SAMPLE}_R.non.host.R1.fastq.gz data/.
-mv ${SAMPLE}_R.non.host.R2.fastq.gz data/.
+mv ${SAMPLE_READS}_R.non.host.R1.fastq.gz data/.
+mv ${SAMPLE_READS}_R.non.host.R2.fastq.gz data/.
 
 ls -lh data/*
 ls
@@ -47,8 +47,8 @@ echo "Aligning paired reads - output will be sam format"
 echo $(pwd)
 bowtie2 -p ${CPUS} \
 	-x ./data/index/${SAMPLE}_scaffolds \
-	-1 ./data/${SAMPLE_READS}.1P.fastq00.0_0.cor.fastq.gz \
-	-2 ./data/${SAMPLE_READS}.2P.fastq00.0_0.cor.fastq.gz \
+	-1 ./data/${SAMPLE_READS}_R.non.host.R1.fastq.gz \
+	-2 ./data/${SAMPLE_READS}_R.non.host.R2.fastq.gz \
 	-S ./${SAMPLE}_vs_${SAMPLE_READS}.sam
 
 ls
