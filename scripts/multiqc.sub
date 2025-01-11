@@ -1,0 +1,20 @@
+# apptainer.sub
+
+# Provide HTCondor with the name of your .sif file and universe information
+container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/fastqc_multiqc.sif
+
+executable = ./scripts/multiqc.sh
+arguments = /staging/ptran5/
+
+log = logs/multiqc_$(cluster)_$(process).log
+error = logs/multiqc_$(cluster)_$(process).err
+output = logs/multiqc_$(cluster)_$(process).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+# Make sure you request enough disk for the container image in addition to your other input files
+request_cpus = 4
+request_memory = 5GB
+request_disk = 5GB      
+
+queue

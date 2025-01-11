@@ -23,13 +23,13 @@ requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7)
 +LongJob = True
 
 # Make sure you request enough disk for the container image in addition to your other input files
-#request_cpus = 16
-#request_memory = 32GB
-#request_disk = 1TB      
+request_cpus = 16
+request_memory = 32GB
+request_disk = 1TB      
 
-request_cpus = 4
-request_memory = 4GB
-request_disk = 4GB      
+#request_cpus = 4
+#request_memory = 4GB
+#request_disk = 4GB      
 
 # Out of 2704 jobs, it will submit 500 jobs at the time
 #max_idle = 500
