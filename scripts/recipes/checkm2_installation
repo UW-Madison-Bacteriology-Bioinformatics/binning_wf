@@ -1,0 +1,2 @@
+# Download it directly from galaxy
+wget https://depot.galaxyproject.org/singularity/checkm2%3A1.0.2--pyh7cba7a3_0
