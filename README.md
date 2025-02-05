@@ -68,7 +68,7 @@ The `binning_wf` expects this folder structure to access the assembled data, cle
 1. Log into CHTC
 2. Copy this directory and cd into it, make the .sh script executable
 ```
-git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git
+git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git --branch after-amr-metagenomics
 cd binning_wf
 chmod +x scripts/*.sh
 ```
