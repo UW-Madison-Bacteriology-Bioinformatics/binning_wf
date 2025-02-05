@@ -48,15 +48,20 @@ You will first need access to a `/staging/netid` folder. For more information ab
 
 In your request, please consider your input files (how many samples will you have, have the size of all your reads and assembled data, as well as your output files)
 
-The pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `Trimmomatic`, assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the `spades` corrected trimmed reads with this file name format : `${SAMPLE_READS}.1P.fastq00.0_0.cor.fastq.gz` or `${SAMPLE_READS}.2P.fastq00.0_0.cor.fastq.gz`
+>[!NOTE]
+> This version of binning_wf assumes that you have ran [AMR-Metagenomics] (https://github.com/UW-Madison-Bacteriology-Bioinformatics/amr-metagenomics) prior, and have an assembled FASTA file and cleaned, host-removed FASTQ files in your staging folder.
+
+
+Alternative: If you want to run `binning_wf` as standalone, the pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `Trimmomatic`, assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the trimmed reads with this file name format : `${SAMPLE_READS}_R.non.host.R1.fastq.gz` or `${SAMPLE_READS}_R.non.host.R2.fastq.gz`
 
 Once you have preprocessed your data, please organize them in the following manner:
 ```
 /staging/netID
 /staging/netID/preprocessing/assembly/${sample}_scaffolds.fasta
-/staging/netID/preprocessing/assembly/reads/*.fastq.gz # [both directions]
+/staging/netID/preprocessing/assembly/reads/${sample}_R.non.host.R{1,2}.fastq.gz # [both directions]
 /staging/netID/preprocessing/annotation/${sample}_scaffolds_proteins.faa
 ```
+
 The `binning_wf` expects this folder structure to access the assembled data, cleaned up reads, and faa files.
 
 ## Instructions
@@ -68,11 +73,17 @@ cd binning_wf
 chmod +x scripts/*.sh
 ```
 3. Create a list of samples named `sample_list.txt`.
+
+>[!WARNING]
+> What should go in your sample_list? The sample list will be used for all-vs-all mapping in the first step of the pipeline. Scientifically speaking, we prefer to map all-vs-all samples that correspond to the same ecological group (splitting samples by where in the water column they occur, some kind of important soil characteristics, etd.). The idea is to use differential coverage across samples of a similar type to better bin low-abundance or hard to bin genomes.
+> Therefore when you make a list, you can make a list for each group. for example, if you have 1 sample list for Depth1-5m, Depth6-10m, and Depth11-lower, you will run binning_wf 3 times.
+
 ```
 nano sample_list.txt
 # write your samples
 # save and exit editor
 ```
+
 4. Use the helper scripts and templates to create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
    
 Usage: `bash create_custom_dag.sh <samples_list> <netid> <path to checkm DB> <path to GTDB database>`
@@ -86,15 +97,25 @@ bash create_custom_dag.sh sample_list.txt ptran5 /projects/bacteriology_tran_dat
 
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
+
 5. Create a logs folder for you CHTC log, err and out files.
 ```
 mkdir logs
 ```
+
 6. Submit your job to chtc like usual!
 ```
 condor_submit_dag ultimate_dag.dag
 condor_q -dag -nobatch
 ```
+
+7. MultiQC
+   
+You use use the script multiqc.sub to summarize all the genome qualities and taxonomies across the samples found in `/staging/netid/binning_wf`. Essentially, it will look for file extensions corresponding to the CheckM2 and GTDB-tk output files and put them all into 1 HTML file that you can interactively explore. 
+
+8. Clean up & repeat.
+
+If you have more than 1 sample_list, repeat Step 4 and 6 or the remaining sample_list. You might need to 
 
 # Citations
 If you find this software useful, please cite this GitHub Repository
