@@ -115,7 +115,8 @@ You use use the script multiqc.sub to summarize all the genome qualities and tax
 
 8. Clean up & repeat.
 
-If you have more than 1 sample_list, repeat Step 4 and 6 or the remaining sample_list. You might need to 
+Transfer files out of CHTC to your ResearchDrive once each "set" of bins is complete to save space. Use Globus to do so.
+If you have more than 1 sample_list, repeat Step 4 and 6 or the remaining sample_list: you will need to reuse the scripts create_custom_dag.sh and create_main_dag.sh, you can replace `ultimate_dag.dag` to for example `ultimate_dag_set2.dag` to distinguish it from the previous run.
 
 # Citations
 If you find this software useful, please cite this GitHub Repository
