@@ -6,17 +6,17 @@ SAMPLE="$2"
 CPUS="$3"
 DB="$4"
 
-echo "copy genomes"
+echo "LOG: copy genomes"
 mkdir genomes
 cp ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/${SAMPLE}_refine_bins_DASTool_bins/*.fa genomes/.
 
-echo "list few first files"
+echo "LOG: list few first files"
 ls genomes/* | head -n 5
 
 export GTDBTK_DATA_PATH=${DB}
 echo $GTDBTK_DATA_PATH
 
-echo "start taxonomic assignment"
+echo "LOG: start taxonomic assignment"
 gtdbtk classify_wf --genome_dir genomes/ \
 	--out_dir gtdb_output \
 	--cpus ${CPUS} \
@@ -25,5 +25,5 @@ gtdbtk classify_wf --genome_dir genomes/ \
 	--skip_ani_screen \
 	-x fa
 
-echo "zip and move the rest"
+echo "LOG: Zip output files."
 tar czf ${SAMPLE}_gtdbtk_output.tar.gz gtdb_output
