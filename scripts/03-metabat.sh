@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e 
 
+SAMPLE="$2"
+
 echo "LOG: print help"
 metabat2 -h
 
