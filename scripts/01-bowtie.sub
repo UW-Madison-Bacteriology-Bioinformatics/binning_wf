@@ -1,7 +1,7 @@
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-container_image = docker://staphb/bowtie2:2.5.4
+container_image = oras://registry.doit.wisc.edu/ptran5/containers/bowtie2_samtools:1.0.0
 
 executable = ./scripts/01-bowtie.sh
 
