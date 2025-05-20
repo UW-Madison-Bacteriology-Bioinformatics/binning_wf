@@ -6,8 +6,8 @@ container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/
 executable = ./scripts/07-gtdbtk.sh
 arguments = $(location) $(sample) $(request_cpus) $(db)
 
-transfer_output_files = gtdb_output/gtdbtk.ar53.summary.tsv, gtdb_output/gtdbtk.bac120.summary.tsv, $(sample)_gtdbtk_output.tar.gz
-transfer_output_remaps = "gtdb_output/gtdbtk.ar53.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.ar53.summary.tsv;gtdb_output/gtdbtk.bac120.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.bac120.summary.tsv;$(sample)_gtdbtk_output.tar.gz=file://$(location)/binning_wf/$(sample)/bins/taxonomy/$(sample)_gtdbtk_output.tar.gz"
+transfer_output_files = gtdb_output/classify/gtdbtk.ar53.summary.tsv, gtdb_output/classify/gtdbtk.bac120.summary.tsv, $(sample)_gtdbtk_output.tar.gz
+transfer_output_remaps = "gtdb_output/classify/gtdbtk.ar53.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.ar53.summary.tsv;gtdb_output/classify/gtdbtk.bac120.summary.tsv=file://$(location)/binning_wf/$(sample)/bins/taxonomy/gtdbtk.bac120.summary.tsv;$(sample)_gtdbtk_output.tar.gz=file://$(location)/binning_wf/$(sample)/bins/taxonomy/$(sample)_gtdbtk_output.tar.gz"
 
 log = logs/gtdbtk_$(sample)_$(cluster)_$(process).log
 error = logs/gtdbtk_$(sample)_$(cluster)_$(process).err
