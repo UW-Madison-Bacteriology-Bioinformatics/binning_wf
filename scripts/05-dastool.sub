@@ -2,7 +2,8 @@
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/dastool.sif
+#container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/dastool.sif
+container_image = oras://registry.doit.wisc.edu/ptran5/containers/dastool:1.1.7
 
 executable = ./scripts/05-dastool.sh
 arguments = $(location) $(sample) $(request_cpus)

@@ -20,26 +20,24 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 # Workflow design
 ![Blank diagram](https://github.com/user-attachments/assets/93816abc-e625-4d21-9ce5-f95bf7046c38)
 
-# Building containers
-
-To run this pipeline, you will either need access to `/projects/bacteriology_tran_data/binning_wf_containers` where I have pre-built containers OR built them yourself using the apptainer definition files under `scripts/recipes`.
-
-If you would like to build the containers yourself, using the interactive build jobs to create the containers in `scripts/recipes` once you are logged into chtc.
-
 # Description of files in this directory
 - `/scripts`: Scripts such as .sh and .sub files.
-- (to do) Apptainer container images are located in `containers/`
+- Definition files to create containers (optional)
 	- Bowtie v.2.5.4 
 	- Metabat2 version 2:2.17 (Bioconda); 2024-06-20T09:50:37 
 	- MaxBin 2.2.7 
 	- DAS Tool 1.1.7 
-	- CheckM2 v.1.0.1
-	- GTDB-tk v2.4.0 with GTDB database release 220 (April 24, 2024 - Current) 
+	- CheckM2 v.1.1.0
+	- GTDB-tk v2.4.1 with GTDB database release 220 (April 24, 2024 - Current) 
+> [!NOTE]  
+> In this version (May 2025) of the pipeline, it is no longer necessary to build the software container yourselves. The line `container_image` of each submit file either pulls an image available on DockerHub **or** one from the UW-Madison GitLab Container registry. 
+
 - a template DAG is named `binning_wf_template.dag` in this main directory.
 - A DAGman configuration file is named `dagman.dag`.
 - Two helper scripts are provided to edit the template for you to run the script.
 	- `create_custom_dag.sh` is a bash script that creates multiple dag for each of your samples.
 	- `create_main_dag.sh` is a bash script that creates a "super dag" to run all your "individual dags" at once, given the configuration in dagman.dag.
+
 
 # Quick-start guide
 ## Preparing input files & folder directory
@@ -51,8 +49,8 @@ In your request, please consider your input files (how many samples will you hav
 >[!NOTE]
 > This version of binning_wf assumes that you have ran [AMR-Metagenomics] (https://github.com/UW-Madison-Bacteriology-Bioinformatics/amr-metagenomics) prior, and have an assembled FASTA file and cleaned, host-removed FASTQ files in your staging folder.
 
-
-Alternative: If you want to run `binning_wf` as standalone, the pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `Trimmomatic`, assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the trimmed reads with this file name format : `${SAMPLE_READS}_R.non.host.R1.fastq.gz` or `${SAMPLE_READS}_R.non.host.R2.fastq.gz`
+Alternative: If you want to run `binning_wf` as standalone, the pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `fastp`, map your reads to a host genome to remove contaminants (optional), assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the trimmed reads with this file name format : `${SAMPLE_READS}_R.non.host.R1.fastq.gz` or `${SAMPLE_READS}_R.non.host.R2.fastq.gz`.
+This [workflow](https://github.com/UW-Madison-Bacteriology-Bioinformatics/mg-assembly-sr) provides an example of how to run fastp and spades on metagenome samples.
 
 Once you have preprocessed your data, please organize them in the following manner:
 ```

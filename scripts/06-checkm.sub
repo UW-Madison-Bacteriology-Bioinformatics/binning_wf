@@ -3,7 +3,8 @@
 # Provide HTCondor with the name of your .sif file and universe information
 # this checkm2 container is downloaded from the usegalaxy.org website.
 #container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/checkm2_1.0.1--pyh7cba7a3_0
-container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/checkm2.sif
+#container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/checkm2.sif
+container_image = docker://staphb/checkm2:1.1.0
 
 executable = ./scripts/06-checkm.sh
 arguments = $(location) $(sample) $(request_cpus) $(db)

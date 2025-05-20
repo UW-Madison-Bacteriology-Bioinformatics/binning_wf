@@ -1,7 +1,8 @@
 # apptainer.sub
 
 # Provide HTCondor with the name of your .sif file and universe information
-container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/gtdbtk_v2.4.0.sif
+#container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/gtdbtk_v2.4.0.sif
+container_image = docker://ecogenomic/gtdbtk:2.4.1
 
 executable = ./scripts/07-gtdbtk.sh
 arguments = $(location) $(sample) $(request_cpus) $(db)
