@@ -1,13 +1,8 @@
 ![Status - Testing](https://img.shields.io/badge/Status-Testing-2ea44f)
 ![Version - pre-release](https://img.shields.io/badge/Version-pre--release-af7777)
-[![Documentation - Quick-start](https://img.shields.io/badge/Documentation-Quick--start-57e8ad)](https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf?tab=readme-ov-file#quick-start-guide)
 
 # About this pipeline
 **Program**: Binning_wf
-
-**Current Version**: 0.1
-
-**Status**: Testing with researchers
 
 **Scientific Purpose**: Binning_wf is metagenomic binning software and wrapper script that assembles, refines, quality-checks and assigns taxonomy to metagenome-assembled-genomes (MAGs), or bins. This workflow is suited to assemble high-quality microbial (archaeal, bacterial) genomes from high-throughput sequencing data (metagenomics).
 The software requirements are, for each sample, assembled contigs, reads, and annotated scaffolds, and bins them.
@@ -30,7 +25,7 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 	- CheckM2 v.1.1.0
 	- GTDB-tk v2.4.1 with GTDB database release 220 (April 24, 2024 - Current) 
 > [!NOTE]  
-> In this version (May 2025) of the pipeline, it is no longer necessary to build the software container yourselves. The line `container_image` of each submit file either pulls an image available on DockerHub **or** one from the UW-Madison GitLab Container registry. 
+> As of May 2025, it is no longer necessary to build the software container yourselves. The line `container_image` of each submit file either pulls an image available on DockerHub **or** one from the UW-Madison GitLab Container registry. 
 
 - a template DAG is named `binning_wf_template.dag` in this main directory.
 - A DAGman configuration file is named `dagman.dag`.
@@ -66,7 +61,7 @@ The `binning_wf` expects this folder structure to access the assembled data, cle
 1. Log into CHTC
 2. Copy this directory and cd into it, make the .sh script executable
 ```
-git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git --branch after-amr-metagenomics
+git clone https://github.com/UW-Madison-Bacteriology-Bioinformatics/binning_wf.git --branch testing
 cd binning_wf
 chmod +x scripts/*.sh
 ```
