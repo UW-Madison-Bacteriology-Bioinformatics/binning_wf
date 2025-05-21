@@ -2,7 +2,8 @@
 
 # Provide HTCondor with the name of your .sif file and universe information
 #container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/metabat2.sif
-container_image = oras://registry.doit.wisc.edu/ptran5/containers/maxbin2:2.2.7
+#container_image = oras://registry.doit.wisc.edu/ptran5/containers/maxbin2:2.2.7
+container_image = oras://registry.doit.wisc.edu/ptran5/containers/metabat:2.17
 
 executable = ./scripts/02-generate_depths_maxbin2.sh
 arguments = $(location) $(sample) $(sample_list)
