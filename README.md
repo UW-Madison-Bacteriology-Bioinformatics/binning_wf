@@ -115,8 +115,15 @@ You use use the script multiqc.sub to summarize all the genome qualities and tax
 
 8. Clean up & repeat.
 
+
 Transfer files out of CHTC to your ResearchDrive once each "set" of bins is complete to save space. Use Globus to do so.
+
+> [!IMPORTANT]  
+> If you are planning to run this again, copy over all the files to another folder such as (`./previous_dag/`). The `sample_list.txt` file, with the new list of samples, is still expected to be called `sample_list.txt` because the script `01-bowtie2.sub` has a line that says `queue sample from sample_list.txt` to create the depth mapping file
+
 If you have more than 1 sample_list, repeat Step 4 and 6 or the remaining sample_list: you will need to reuse the scripts create_custom_dag.sh and create_main_dag.sh, you can replace `ultimate_dag.dag` to for example `ultimate_dag_set2.dag` to distinguish it from the previous run.
+
+
 
 # Citations
 If you find this software useful, please cite this GitHub Repository
