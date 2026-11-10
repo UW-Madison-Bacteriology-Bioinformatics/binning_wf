@@ -1,0 +1,14 @@
+logs/*
+*.txt
+*condor.sub
+*dagman.log
+*dagman.out
+*lib.err
+*lib.out
+*metrics
+*nodes.log
+*rescue*
+scripts/recipes/build.log
+
+*.dag
+!binning_wf_template.dag
