@@ -1,6 +1,3 @@
-![Status - Testing](https://img.shields.io/badge/Status-Testing-2ea44f)
-![Version - pre-release](https://img.shields.io/badge/Version-pre--release-af7777)
-
 # About this pipeline
 **Program**: Binning_wf
 
@@ -23,9 +20,10 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 	- MaxBin 2.2.7 
 	- DAS Tool 1.1.7 
 	- CheckM2 v.1.1.0
-	- GTDB-tk v2.4.1 with GTDB database release 220 (April 24, 2024 - Current) 
+	- GTDB-tk v2.7.0 with GTDB database release 232 
 > [!NOTE]  
 > As of May 2025, it is no longer necessary to build the software container yourselves. The line `container_image` of each submit file either pulls an image available on DockerHub **or** one from the UW-Madison GitLab Container registry. 
+> The databases in /projects are now also available to the campus community: https://bioinformatics.bact.wisc.edu/databases/
 
 - a template DAG is named `binning_wf_template.dag` in this main directory.
 - A DAGman configuration file is named `dagman.dag`.
@@ -49,10 +47,10 @@ This [workflow](https://github.com/UW-Madison-Bacteriology-Bioinformatics/mg-ass
 
 Once you have preprocessed your data, please organize them in the following manner:
 ```
-/staging/netID
-/staging/netID/preprocessing/assembly/${sample}_scaffolds.fasta
-/staging/netID/preprocessing/assembly/reads/${sample}_R.non.host.R{1,2}.fastq.gz # [both directions]
-/staging/netID/preprocessing/annotation/${sample}_scaffolds_proteins.faa
+/staging/n/netID
+/staging/n/netID/preprocessing/assembly/${sample}_scaffolds.fasta
+/staging/n/netID/preprocessing/assembly/reads/${sample}_R.non.host.R{1,2}.fastq.gz # [both directions]
+/staging/n/netID/preprocessing/annotation/${sample}_scaffolds_proteins.faa
 ```
 
 The `binning_wf` expects this folder structure to access the assembled data, cleaned up reads, and faa files.
@@ -77,16 +75,22 @@ nano sample_list.txt
 # save and exit editor
 ```
 
-4. Use the helper scripts and templates to create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
+4. Use the helper scripts and templates to set up your folder structure, create a .dag for all your samples, and an "ultimate_dag" file that will connect all your subdags.
+
+Usage: `while IFS= read -r line; do scripts/set_up.sh "$line"; done < sample_list.txt`
    
-Usage: `bash create_custom_dag.sh <samples_list> <netid> <path to checkm DB> <path to GTDB database>`
+Usage: `bash create_custom_dag.sh <samples_list> <n/netid> <path to checkm DB> <path to GTDB database>`
 
 Usage: `bash create_main_dag.sh <list of samples> <output_file>`
 
-For example (change path of checkm and path of GTDB of your choice) (make sure you are using the correct DB versions). If you are at UW-Madison and would like me to add your to the `/projects/bacteriology_tran_data` simply send me an email! No need to redownload the whole database yourself. 
+The paths to CheckM and GTDB are:
+/projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd
+/projects/bacteriology_tran_data/gtdbtk_v232
 
 ```
-bash create_custom_dag.sh sample_list.txt ptran5 /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd /projects/bacteriology_tran_data/gtdbtk_v220/
+while IFS= read -r line; do scripts/set_up.sh "$line"; done < sample_list.txt
+
+bash create_custom_dag.sh sample_list.txt n/netid /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd /projects/bacteriology_tran_data/gtdbtk_v232
 
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
@@ -104,7 +108,7 @@ condor_q -dag -nobatch
 
 7. MultiQC
    
-You use use the script multiqc.sub to summarize all the genome qualities and taxonomies across the samples found in `/staging/netid/binning_wf`. Essentially, it will look for file extensions corresponding to the CheckM2 and GTDB-tk output files and put them all into 1 HTML file that you can interactively explore. 
+You use use the script multiqc.sub to summarize all the genome qualities and taxonomies across the samples found in `/staging/n/netid/binning_wf`. Essentially, it will look for file extensions corresponding to the CheckM2 and GTDB-tk output files and put them all into 1 HTML file that you can interactively explore. 
 
 8. Clean up & repeat.
 
