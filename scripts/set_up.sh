@@ -2,25 +2,27 @@
 
 # Creates folders
 
-FOLDER="$1"
-SAMPLE="$2"
+# Usage: bash set_up.sh sample_list.txt
+# What this does: for every sample (rows) in sample_list.txt, the following folder structure will be created.
 
-echo "Folder: $FOLDER"
+SAMPLE="$1"
+
+echo "Folder: $STAGING"
 echo "Sample: $SAMPLE"
 
 #set -e
 
-echo "making directories"
+echo "Making directories"
 
-mkdir -p ${FOLDER}/binning_wf/
-mkdir -p ${FOLDER}/binning_wf/mapping/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/depths/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/metabat2/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/maxbin2/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/refined/
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/QA
-mkdir -p ${FOLDER}/binning_wf/${SAMPLE}/bins/taxonomy
+mkdir -p $STAGING/binning_wf/
+mkdir -p $STAGING/binning_wf/mapping/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/depths/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/metabat2/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/maxbin2/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/refined/
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/QA
+mkdir -p $STAGING/binning_wf/${SAMPLE}/bins/taxonomy
 
-echo "set up directories"
+echo "Finished setting up directories for $SAMPLE"
