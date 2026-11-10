@@ -35,7 +35,7 @@ Biologically, it was important that this pipeline performs all-vs-all mapping fo
 # Quick-start guide
 ## Preparing input files & folder directory
 
-You will first need access to a `/staging/netid` folder. For more information about /staging folders, please visit: https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata . The `/staging` folder will be used for the large genomic input files, and the large genomic output files.
+You will first need access to a `/staging/n/netid` folder. For more information about /staging folders, please visit: https://chtc.cs.wisc.edu/uw-research-computing/file-avail-largedata . The `/staging` folder will be used for the large genomic input files, and the large genomic output files.
 
 In your request, please consider your input files (how many samples will you have, have the size of all your reads and assembled data, as well as your output files)
 
@@ -52,6 +52,8 @@ Once you have preprocessed your data, please organize them in the following mann
 /staging/n/netID/preprocessing/assembly/reads/${sample}_R.non.host.R{1,2}.fastq.gz # [both directions]
 /staging/n/netID/preprocessing/annotation/${sample}_scaffolds_proteins.faa
 ```
+
+From the access point, $STAGING is already /staging/n/netid and corresponds to your specific netid staging folder.
 
 The `binning_wf` expects this folder structure to access the assembled data, cleaned up reads, and faa files.
 
@@ -79,18 +81,19 @@ nano sample_list.txt
 
 Usage: `while IFS= read -r line; do scripts/set_up.sh "$line"; done < sample_list.txt`
    
-Usage: `bash create_custom_dag.sh <samples_list> <n/netid> <path to checkm DB> <path to GTDB database>`
+Usage: `bash create_custom_dag.sh <samples_list> <$STAGING>`
 
 Usage: `bash create_main_dag.sh <list of samples> <output_file>`
 
-The paths to CheckM and GTDB are:
+For your information, the paths to CheckM and GTDB are:
 /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd
 /projects/bacteriology_tran_data/gtdbtk_v232
+These are available to anyone on CHTC so you don't need to specify them in the script anymore.
 
 ```
 while IFS= read -r line; do scripts/set_up.sh "$line"; done < sample_list.txt
 
-bash create_custom_dag.sh sample_list.txt n/netid /projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd /projects/bacteriology_tran_data/gtdbtk_v232
+bash create_custom_dag.sh sample_list.txt $STAGING
 
 bash create_main_dag.sh sample_list.txt ultimate_dag.dag
 ```
