@@ -109,6 +109,11 @@ condor_q -dag -nobatch
 7. MultiQC
    
 You use use the script multiqc.sub to summarize all the genome qualities and taxonomies across the samples found in `/staging/n/netid/binning_wf`. Essentially, it will look for file extensions corresponding to the CheckM2 and GTDB-tk output files and put them all into 1 HTML file that you can interactively explore. 
+To use this script:
+
+```
+condor_submit scripts/multiqc.sub
+```
 
 8. Clean up & repeat.
 

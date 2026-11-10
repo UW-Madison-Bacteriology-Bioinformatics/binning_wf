@@ -4,7 +4,8 @@
 container_image = file:///projects/bacteriology_tran_data/binning_wf_containers/fastqc_multiqc.sif
 
 executable = ./scripts/multiqc.sh
-arguments = /staging/ptran5/
+
+environment = "STAGING=$ENV(STAGING)"
 
 log = logs/multiqc_$(cluster)_$(process).log
 error = logs/multiqc_$(cluster)_$(process).err
