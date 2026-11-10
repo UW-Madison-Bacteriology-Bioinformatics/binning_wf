@@ -9,7 +9,8 @@ log = build.log
 executable = /usr/bin/hostname
 
 # If you have additional files in your /home directory that are required for your container, add them to the transfer_input_files line as a comma-separated list.
-transfer_input_files = bowtie2.def, metabat2.def, maxbin2.def, dastool.def, gtdbtk.def
+#transfer_input_files = bowtie2.def, metabat2.def, maxbin2.def, dastool.def, gtdbtk.def
+transfer_input_files = bowtie2_samtools.def
 
 requirements = (HasCHTCStaging == true)
 
