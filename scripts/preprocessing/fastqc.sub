@@ -1,7 +1,6 @@
 container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif
 executable = fastqc.sh
 
-# Include other files that need to be transferred here.
 transfer_input_files = fastqc.sh
 
 arguments = $(sample)
@@ -14,7 +13,6 @@ output = logs/fastqc_$(cluster)_$(process).out
 
 requirements = (HasCHTCStaging == true) && (HasCHTCProjects == true)
 
-# Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 8
 request_memory = 10GB
 request_disk = 10GB      
