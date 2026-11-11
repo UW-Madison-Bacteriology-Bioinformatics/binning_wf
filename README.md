@@ -39,11 +39,8 @@ You will first need access to a `/staging/n/netid` folder. For more information 
 
 In your request, please consider your input files (how many samples will you have, have the size of all your reads and assembled data, as well as your output files)
 
->[!NOTE]
-> This version of binning_wf assumes that you have ran [AMR-Metagenomics] (https://github.com/UW-Madison-Bacteriology-Bioinformatics/amr-metagenomics) prior, and have an assembled FASTA file and cleaned, host-removed FASTQ files in your staging folder.
+This assumes that you have already trimmed and assembled your metagenomic reads. There is a script named `scripts/00-assembly.sub` you can run to assemble your data.
 
-Alternative: If you want to run `binning_wf` as standalone, the pipeline assumes that you have already preprocessed your data (trimming, assembling reads into contigs, and annotated contigs). For example, you can trim your samples using `fastp`, map your reads to a host genome to remove contaminants (optional), assemble your reads using `SPADES` if using short-reads, and annotate the assembled scaffolds using `prodigal` such that you have a file with translated amino acids. For the reads, we expected the trimmed reads with this file name format : `${SAMPLE_READS}_R.non.host.R1.fastq.gz` or `${SAMPLE_READS}_R.non.host.R2.fastq.gz`.
-This [workflow](https://github.com/UW-Madison-Bacteriology-Bioinformatics/mg-assembly-sr) provides an example of how to run fastp and spades on metagenome samples.
 
 Once you have preprocessed your data, please organize them in the following manner:
 ```
