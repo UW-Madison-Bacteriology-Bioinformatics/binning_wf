@@ -1,0 +1,28 @@
+universe = container
+container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif 
+
+executable = kraken2.sh
+arguments = $(request_cpus) $(sample) $(database)
+
+environment = "STAGING=$ENV(STAGING)"
+
+#database = /projects/bacteriology_tran_data/kraken2_db_standard_20260226
+
+transfer_input_files = osdf:///chtc$ENV(STAGING)/reads/$(sample)_1.fastq.gz, osdf:///chtc$ENV(STAGING)/reads/$(sample)_2.fastq.gz
+
+transfer_output_files = output.txt
+transfer_output_remaps = "output.txt=osdf:///chtc$ENV(STAGING)/reads/kraken2/$(sample)_output_fullDB.txt"
+
+log = logs/kraken2_$(cluster)_$(sample).log
+error = logs/kraken2_$(cluster)_$(sample).err
+output = logs/kraken2_$(cluster)_$(sample).out
+
+Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+request_cpus = 20
+request_memory = 16GB
+request_disk = 100GB
+
+retry_request_memory = RequestMemory * 4
+
+queue sample from sample_list.txt
