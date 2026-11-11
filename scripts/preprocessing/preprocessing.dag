@@ -1,0 +1,10 @@
+# preprocessing.dag
+
+# Define the DAG jobs
+JOB FASTQC fastqc.sub
+JOB KRAKEN kraken2.sub
+JOB MULTIQC multiqc.sub
+
+# Define the connections
+PARENT FASTQC CHILD MULTIQC
+PARENT KRAKEN CHILD MULTIQC
