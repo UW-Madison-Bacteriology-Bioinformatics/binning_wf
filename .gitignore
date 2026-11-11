@@ -1,4 +1,5 @@
 logs/*
+scripts/preprocessing/logs/*
 *.txt
 *condor.sub
 *dagman.log
