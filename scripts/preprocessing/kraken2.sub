@@ -20,9 +20,9 @@ output = logs/kraken2_$(cluster)_$(process).out
 Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
 
 request_cpus = 20
-request_memory = 16GB
-request_disk = 100GB
+request_memory = 100GB
+request_disk = 50GB
 
-retry_request_memory = RequestMemory * 4
+retry_request_memory = RequestMemory * 2
 
 queue sample from sample_list.txt
