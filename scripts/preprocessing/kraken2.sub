@@ -13,9 +13,9 @@ transfer_input_files = osdf:///chtc$ENV(STAGING)/reads/$(sample)_1.fastq.gz, osd
 transfer_output_files = output.txt
 transfer_output_remaps = "output.txt=osdf:///chtc$ENV(STAGING)/reads/kraken2/$(sample)_output_fullDB.txt"
 
-log = logs/kraken2_$(cluster)_$(sample).log
-error = logs/kraken2_$(cluster)_$(sample).err
-output = logs/kraken2_$(cluster)_$(sample).out
+log = logs/kraken2_$(cluster)_$(process).log
+error = logs/kraken2_$(cluster)_$(process).err
+output = logs/kraken2_$(cluster)_$(process).out
 
 Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
 
