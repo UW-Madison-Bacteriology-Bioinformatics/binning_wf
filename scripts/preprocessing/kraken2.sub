@@ -6,7 +6,7 @@ arguments = $(request_cpus) $(sample) $(database)
 
 environment = "STAGING=$ENV(STAGING)"
 
-#database = /projects/bacteriology_tran_data/kraken2_db_standard_20260226
+database = /projects/bacteriology_tran_data/kraken2_db_standard_20260226
 
 transfer_input_files = osdf:///chtc$ENV(STAGING)/reads/$(sample)_1.fastq.gz, osdf:///chtc$ENV(STAGING)/reads/$(sample)_2.fastq.gz
 
