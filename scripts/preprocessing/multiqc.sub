@@ -1,0 +1,20 @@
+container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif 
+
+executable = multiqc.sh
+
+environment = "STAGING=$ENV(STAGING)"
+
+transfer_output_files = "multiqc_report.html"
+transfer_output_remaps = "multiqc_report.html=osdf:///chtc$ENV(STAGING)/reads/multiqc/multiqc_report_$(cluster)_$(process).html"
+
+log = logs/multiqc_$(cluster)_$(process).log
+error = logs/multiqc_$(cluster)_$(process).err
+output = logs/multiqc_$(cluster)_$(process).out
+
+requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+request_cpus = 4
+request_memory = 5GB
+request_disk = 5GB      
+
+queue
