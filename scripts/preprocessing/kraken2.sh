@@ -17,6 +17,7 @@ kraken2 --help
 kraken2 --db ${DB_PATH} \
 	--threads ${CPUS} \
 	--output output.txt \
+	--report report.txt \
 	--use-names \
 	--paired \
 	${SAMPLE}_1.fastq.gz \
