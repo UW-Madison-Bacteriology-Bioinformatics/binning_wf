@@ -2,7 +2,10 @@
 
 # Define the DAG jobs
 JOB FASTQC fastqc.sub
+
 JOB KRAKEN kraken2.sub
+ENV SET STAGING=$ENV(STAGING)
+
 JOB MULTIQC multiqc.sub
 
 # Define the connections
