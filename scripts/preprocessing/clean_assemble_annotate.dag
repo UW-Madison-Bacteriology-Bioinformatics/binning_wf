@@ -1,0 +1,14 @@
+# This DAG will maps reads to the reference genome, and only used unmapped (non-host) reads for the assembly.
+# After the assembly, it will annotate the contigs using prokka.
+
+JOB CLEAN remove_host.sub
+ENV SET STAGING=$ENV(STAGING)
+
+JOB ASSEMBLY assembly.sub
+ENV SET STAGING=$ENV(STAGING)
+
+JOB ANNOTATE prokka.sub
+ENV SET STAGING=$ENV(STAGING)
+
+PARENT CLEAN CHILD ASSEMBLY
+PARENT ASSEMBLY CHILD ANNOTATE
