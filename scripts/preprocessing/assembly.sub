@@ -1,0 +1,31 @@
+universe = container
+container_image = docker://staphb/spades:4.2.0
+
+executable = assembly.sh
+
+arguments = $(request_cpus) $(sample)
+
+# Modify as needed : this assumes your samples are located under /staging/n/netid/reads/ and have a file naming that ends with R1_001.fastq.gz or R2_002.fastq.gz
+
+transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R1.fastq.gz, \
+	file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R2.fastq.gz
+
+transfer_output_files = $(sample)_spades_output.tar.gz, $(sample)_spades_output/scaffolds.fasta
+
+transfer_output_remaps  = "$(sample)_spades_output.tar.gz=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz;
+	$(sample)_spades_output/scaffolds.fasta=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_scaffolds.fasta"
+
+log = logs/assembly_$(sample).log
+error = logs/assembly_$(sample).err
+output = logs/assembly_$(sample).out
+
+#want_campus_pools = true
+#want_ospool = true
+
+request_cpus = 16
+request_memory = 16GB
+request_disk = 10GB
+
+retry_request_memory = RequestMemory*4
+
+queue sample from sample_list.txt
