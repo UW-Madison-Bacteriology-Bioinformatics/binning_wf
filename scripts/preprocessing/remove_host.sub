@@ -1,0 +1,32 @@
+universe = container
+container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif
+# this container has both bowtie2, samtools, bedtools
+
+executable = remove_host.sh
+arguments = $(sample) $(reference) $(reference_name) $(request_cpus)
+
+reference_name = GCF_000001405.40_GRCh38.p14_genomic
+reference = /projects/bacteriology_tran_data/amrplusplus_hosts/GCF_000001405.40_GRCh38.p14_genomic.fna
+
+environment = "STAGING=$ENV(STAGING)"
+
+transfer_input_files = file://$ENV(STAGING)/reads/$(sample)_1.fastq.gz, file://$ENV(STAGING)/reads/$(sample)_2.fastq.gz
+
+transfer_output_files = $(sample)_R.non.host.R1.fastq.gz, $(sample)_R.non.host.R2.fastq.gz
+
+transfer_output_remaps = "$(sample)_R.non.host.R1.fastq.gz=file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R1.fastq.gz;\
+	$(sample)_R.non.host.R2.fastq.gz=file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R2.fastq.gz"
+
+log = logs/removehost_$(cluster)_$(process).log
+error = logs/removehost_$(cluster)_$(process).err
+output = logs/removehost_$(cluster)_$(process).out
+
+Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+request_cpus = 8
+request_memory = 62GB
+request_disk = 20GB
+
+retry_request_memory = RequestMemory * 2
+
+queue sample from sample_list.txt
