@@ -15,4 +15,6 @@ tar -cvzf ${SAMPLE}_spades_output.tar.gz ${SAMPLE}_spades_output
 
 echo "Print contents: $(ls)"
 
+cp ${SAMPLE}_spades_output/scaffolds.fasta .
+
 echo "Done."
