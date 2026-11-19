@@ -1,13 +1,10 @@
 universe = container
-#container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif 
 container_image = docker://staphb/prokka:1.15.6
 
 executable = prokka.sh
 arguments = $(request_cpus) $(sample) $(database)
 
 environment = "STAGING=$ENV(STAGING)"
-
-#database = /projects/bacteriology_tran_data/kraken2_db_standard_20260226
 
 transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz
 
