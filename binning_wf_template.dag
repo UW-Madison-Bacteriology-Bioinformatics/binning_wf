@@ -21,7 +21,7 @@ JOB QA ./scripts/06-checkm.sub
 VARS QA sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/" db="/projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd"
 
 JOB Taxonomy ./scripts/07-gtdbtk.sub
-VARS Taxonomy sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/" db="/projects/bacteriology_tran_data/gtdbtk_v232""
+VARS Taxonomy sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/" db="/projects/bacteriology_tran_data/gtdbtk_v232"
 
 # Set up the directories before running the first step, mapping.
 # Arguments are the base folder, and then the sample name
