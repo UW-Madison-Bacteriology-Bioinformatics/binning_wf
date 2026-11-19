@@ -9,9 +9,11 @@ executable = ./scripts/01-bowtie.sh
 # $(sample_reads) is set by the queue statement
 # $(request_cpus) is set by this sub file
 
-arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
+arguments = $(location) $(sample) $(request_cpus)
 
-transfer_input_files = file://$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,file://$(location)/preprocessing/assembly/reads/$(sample_reads)_R.non.host.R1.fastq.gz,file://$(location)/preprocessing/assembly/reads/$(sample_reads)_R.non.host.R2.fastq.gz
+transfer_input_files = file://$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,\
+	file://$(location)/preprocessing/assembly/reads/$(sample_reads)_R.non.host.R1.fastq.gz,\
+	file://$(location)/preprocessing/assembly/reads/$(sample_reads)_R.non.host.R2.fastq.gz
 transfer_output_files = $(sample)_vs_$(sample_reads).sorted.bam
 transfer_output_remaps = "$(sample)_vs_$(sample_reads).sorted.bam=file://$(location)/binning_wf/mapping/$(sample)_vs_$(sample_reads).sorted.bam"
 
@@ -25,8 +27,9 @@ requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7)
 # Make sure you request enough disk for the container image in addition to your other input files
 request_cpus = 16
 request_memory = 32GB
-request_disk = 1TB      
+request_disk =20GB      
 
+retry_request_memory = RequestMemory*2
 #request_cpus = 4
 #request_memory = 4GB
 #request_disk = 4GB      
@@ -34,5 +37,5 @@ request_disk = 1TB
 # Out of 2704 jobs, it will submit 500 jobs at the time
 #max_idle = 500
 
-#queue sample_reads from sample_list.txt
-queue
+queue sample_reads from sample_list.txt
+#queue
