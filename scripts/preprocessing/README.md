@@ -10,17 +10,16 @@ Recommended steps.
 3.3. After decontamination or host removal, run a FASTQC report on your data again
 4. Run a tool like kraken2 to get an overview of the taxonomic composition of your unassembled reads.
 
-5. Assembling your data. This code is for assembling short-read metagenomic data, but choose the appropriate tool and parameters for your data type.
+5. Assembling your data. This example code is for assembling short-read metagenomic data, but choose the appropriate tool and parameters for your data type.
 
 6. Once your have assembled your data, check the quality of your genome assemblies. You can do that checking stats like N50, L50, etc. Gather information about how many scaffolds or contigs were assembled, what percentage of your reads were assembled vs. not, etc.
 6.1. Keep that in mind when interpreting your data downstream, some of your microbiome community is unassembled and will be unbinned.
 
 
-In this folder, I have htcondor scripts to run FASTQC and Kraken2 on your reads, and run a MultiQC report on all the samples.
+In this folder, I have a HTCondor scripts to run FASTQC and Kraken2 on your reads, and run a MultiQC report on all the samples.
 You then only need to transfer out the MultiQC report HTML file for browsing.
 
 *Test dataset:*
-
 If you'd like to try this pipeline but don't have your own data, I suggest the CAMI dataset
 https://www.nature.com/articles/nmeth.4458#accession-codes
 From the paper:
@@ -28,3 +27,14 @@ Sczyrba, A., Hofmann, P., Belmann, P. et al. Critical Assessment of Metagenome I
 
 Following the link to the ENA website (https://www.ebi.ac.uk/ena/browser/view/PRJEB20380), select the forward and reverse FASTQ reads for the 3 rat gut microbiome samples and click on "Get Download Script".
 Run the bash script to download them to your staging folder at $STAGING/reads/.
+An example of the bash script is available in binning_wf/test/download_test_data.sh
+
+# DAGman
+
+Run `bash set_up.sh` to create all the folders in your staging folder
+
+From there, run the FASTQ, KRAKEN2 and MultiQC script using the dag (`condor_submit_dag preprocessing.dag`)
+
+If you'd like to run the rest using a DAGman workflow, you can type `condor_submit_dag clean_assemble_annotate.dag`.
+This will: remove host contaminents, assembly reads into scaffolds/contigs, annotate them using prokka.
+This will write all the output files in the correct folders so that you can use them as imput directly for the main DAG in the folder above (../scripts)
