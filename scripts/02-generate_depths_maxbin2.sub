@@ -24,4 +24,5 @@ request_cpus = 20
 request_memory = 64GB
 request_disk = 50GB      
 
-queue sample_list from sample_list.txt
+queue
+#queue sample_list from sample_list.txt

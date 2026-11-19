@@ -34,4 +34,5 @@ request_disk = 1TB
 # Out of 2704 jobs, it will submit 500 jobs at the time
 #max_idle = 500
 
-queue sample_reads from sample_list.txt
+#queue sample_reads from sample_list.txt
+queue
