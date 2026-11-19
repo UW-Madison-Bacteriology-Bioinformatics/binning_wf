@@ -4,4 +4,4 @@ From: continuumio/miniconda3:24.7.1-0
 %post
 	chmod 777 /tmp
 
-        conda install -c conda-forge -c bioconda bowtie2 bwa fastq-screen fastqc multiqc kraken2 libtiff
+        conda install -c conda-forge -c bioconda bowtie2 bwa fastq-screen fastqc multiqc kraken2 libtiff samtools bedtools
