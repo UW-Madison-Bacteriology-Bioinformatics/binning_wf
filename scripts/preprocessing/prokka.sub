@@ -1,0 +1,30 @@
+universe = container
+#container_image = file:///projects/bacteriology_tran_data/apptainer/preprocessing.sif 
+container_image = docker://staphb/prokka:1.15.6
+
+executable = prokka.sh
+arguments = $(request_cpus) $(sample) $(database)
+
+environment = "STAGING=$ENV(STAGING)"
+
+#database = /projects/bacteriology_tran_data/kraken2_db_standard_20260226
+
+transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz
+
+transfer_output_files = prokka_out/$(sample).faa
+
+transfer_output_remaps = "prokka_out/$(sample).faa=file://$ENV(STAGING)/preprocessing/annotation/$(sample)_scaffolds_proteins.faa"
+
+log = logs/prokka_$(cluster)_$(process).log
+error = logs/prokka_$(cluster)_$(process).err
+output = logs/prokka_$(cluster)_$(process).out
+
+Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
+
+request_cpus = 4
+request_memory = 1GB
+request_disk = 10GB
+
+retry_request_memory = RequestMemory * 2
+
+queue sample from sample_list.txt
