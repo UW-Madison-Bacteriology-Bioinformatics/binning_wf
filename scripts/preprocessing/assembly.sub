@@ -10,10 +10,9 @@ arguments = $(request_cpus) $(sample)
 transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R1.fastq.gz, \
 	file://$ENV(STAGING)/preprocessing/assembly/reads/$(sample)_R.non.host.R2.fastq.gz
 
-transfer_output_files = $(sample)_spades_output.tar.gz, $(sample)_spades_output/scaffolds.fasta
+transfer_output_files = $(sample)_spades_output.tar.gz,scaffolds.fasta
 
-transfer_output_remaps  = "$(sample)_spades_output.tar.gz=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz;
-	$(sample)_spades_output/scaffolds.fasta=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_scaffolds.fasta"
+transfer_output_remaps  = "$(sample)_spades_output.tar.gz=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz;scaffolds.fasta=file://$ENV(STAGING)/preprocessing/assembly/$(sample)_scaffolds.fasta"
 
 log = logs/assembly_$(sample).log
 error = logs/assembly_$(sample).err
