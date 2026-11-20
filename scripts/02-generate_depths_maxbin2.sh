@@ -12,6 +12,7 @@ SAMPLE2="$3"
 
 echo "LOG: Folder: $FOLDER"
 echo "LOG: Sample: $SAMPLE"
+echo "LOG: Sample2: $SAMPLE2"
 
 echo "LOG: make depth file"
 jgi_summarize_bam_contig_depths --outputDepth ${SAMPLE}_vs_${SAMPLE2}.depth.txt ${FOLDER}/binning_wf/mapping/${SAMPLE}_vs_${SAMPLE2}.sorted.bam
