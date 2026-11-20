@@ -4,8 +4,8 @@
 
 # Usage: bash set_up.sh sample_list.txt
 # What this does: for every sample (rows) in sample_list.txt, the following folder structure will be created.
-
-SAMPLE="$1"
+STAGING="$1"
+SAMPLE="$2"
 
 echo "Folder: $STAGING"
 echo "Sample: $SAMPLE"
