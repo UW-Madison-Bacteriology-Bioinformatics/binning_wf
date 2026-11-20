@@ -9,7 +9,7 @@ executable = ./scripts/01-bowtie.sh
 # $(sample_reads) is set by the queue statement
 # $(request_cpus) is set by this sub file
 
-arguments = $(location) $(sample) $(request_cpus)
+arguments = $(location) $(sample) $(sample_reads) $(request_cpus)
 
 transfer_input_files = file://$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta,\
 	file://$(location)/preprocessing/assembly/reads/$(sample_reads)_R.non.host.R1.fastq.gz,\
