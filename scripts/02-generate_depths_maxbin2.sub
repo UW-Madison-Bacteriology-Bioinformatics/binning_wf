@@ -6,6 +6,7 @@
 container_image = oras://registry.doit.wisc.edu/ptran5/containers/metabat2:2.17
 
 executable = ./scripts/02-generate_depths_maxbin2.sh
+
 arguments = $(location) $(sample) $(sample_list)
 
 # Include other files that need to be transferred here.
@@ -24,5 +25,4 @@ request_cpus = 20
 request_memory = 64GB
 request_disk = 50GB      
 
-queue
-#queue sample_list from sample_list.txt
+queue sample_list from sample_list.txt
