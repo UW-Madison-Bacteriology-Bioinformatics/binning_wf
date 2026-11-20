@@ -1,31 +1,40 @@
 ### Binning Workflow Begins ###
 JOB Mapping ./scripts/01-bowtie.sub
 VARS Mapping sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB GetDepth ./scripts/02-generate_depths.sub
 VARS GetDepth sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB GetDepth2 ./scripts/02-generate_depths_maxbin2.sub
 VARS GetDepth2 sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB Metabat ./scripts/03-metabat.sub
 VARS Metabat sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB Maxbin ./scripts/04-maxbin2.sub
 VARS Maxbin sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB Refine ./scripts/05-dastool.sub
 VARS Refine sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB QA ./scripts/06-checkm.sub
 VARS QA sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/" db="/projects/bacteriology_tran_data/checkm2_database/CheckM2_database/uniref100.KO.1.dmnd"
+ENV SET STAGING=$ENV(STAGING)
 
 JOB Taxonomy ./scripts/07-gtdbtk.sub
 VARS Taxonomy sample="PLACEHOLDER_WORD" location="NETID_PLACEHOLDER/" db="/projects/bacteriology_tran_data/gtdbtk_v232"
+ENV SET STAGING=$ENV(STAGING)
 
 # Set up the directories before running the first step, mapping.
 # Arguments are the base folder, and then the sample name
 SCRIPT PRE Mapping ./scripts/set_up.sh NETID_PLACEHOLDER/ PLACEHOLDER_WORD
+ENV SET STAGING=$ENV(STAGING)
 
 ### DAG ###
 PARENT Mapping CHILD GetDepth
@@ -38,3 +47,4 @@ PARENT Refine CHILD QA
 PARENT QA CHILD Taxonomy
 
 SCRIPT POST Taxonomy ./scripts/clean_up.sh NETID_PLACEHOLDER/ PLACEHOLDER_WORD
+ENV SET STAGING=$ENV(STAGING)
