@@ -23,7 +23,7 @@ output = logs/assembly_$(sample).out
 
 request_cpus = 16
 request_memory = 16GB
-request_disk = 10GB
+request_disk = 80GB
 
 retry_request_memory = RequestMemory*4
 
