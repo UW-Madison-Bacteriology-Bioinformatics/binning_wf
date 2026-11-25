@@ -13,11 +13,11 @@ echo "LOG: Sample: $SAMPLE"
 
 # JGI Depth:
 echo "LOG: how many bam files?"
-ls -lh ${FOLDER}/binning_wf/mapping/${SAMPLE}_*.bam | wc -l
+ls -lh ${FOLDER}/binning_wf/mapping/${SAMPLE}_vs_*.bam | wc -l
 
 # Metabat2 takes 1 single table where each row is a contig, and each column is a sample
 echo "LOG: calculate depths with all samples"
-jgi_summarize_bam_contig_depths --outputDepth ${SAMPLE}_depth_all.txt ${FOLDER}/binning_wf/mapping/${SAMPLE}_*.bam
+jgi_summarize_bam_contig_depths --outputDepth ${SAMPLE}_depth_all.txt ${FOLDER}/binning_wf/mapping/${SAMPLE}_vs_*.bam
 ls -lh
 head -n 5 ${SAMPLE}_depth_all.txt
 echo "LOG: done calculating depths"
