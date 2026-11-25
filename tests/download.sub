@@ -1,0 +1,41 @@
+executable              = download.sh
+arguments               = $(link)
+
+# File transfer settings (useful when nodes do not share a filesystem)#
+#should_transfer_files   = YES
+#when_to_transfer_output = ON_EXIT
+#transfer_input_files    = data.csv, helper_functions.py
+
+# Standard output, error, and HTCondor event log paths
+output                  = logs/job_$(Cluster)_$(Process).out
+error                   = logs/job_$(Cluster)_$(Process).err
+log                     = logs/job_$(Cluster).log
+
+# Resource requests
+request_cpus            = 1
+request_memory          = 2 GB
+request_disk            = 10 GB
+
+# Submit 1 instance of the job
+queue link from (
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_0_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_1_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_2_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_3_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_4_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_5_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_6_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_7_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_8_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_9_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_10_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_11_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_12_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_13_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_14_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_15_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_16_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_17_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_18_reads.tar.gz
+https://s3.bi.denbi.de/swift/v1/cami/cami3_toydata/human-gut-toy/sample_19_reads.tar.gz
+)
