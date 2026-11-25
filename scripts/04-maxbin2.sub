@@ -1,13 +1,8 @@
-# apptainer.sub
-
-# Provide HTCondor with the name of your .sif file and universe information
-#container_image = file:///projects/bacteriology_tran_data//binning_wf_containers/maxbin2.sif
 container_image = oras://registry.doit.wisc.edu/ptran5/containers/maxbin2:2.2.7
 
 executable = ./scripts/04-maxbin2.sh
 arguments = $(location) $(sample) $(request_cpus)
 
-# Include other files that need to be transferred here.
 transfer_input_files = file://$(location)/preprocessing/assembly/$(sample)_scaffolds.fasta
 transfer_output_files = $(sample)_maxbin2_bins.tar.gz
 transfer_output_remaps = "$(sample)_maxbin2_bins.tar.gz=file://$(location)/binning_wf/$(sample)/bins/maxbin2/$(sample)_maxbin2_bins.tar.gz"
@@ -18,11 +13,10 @@ output = logs/maxbin2_$(sample)_$(cluster)_$(process).out
 
 requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
 
-+LongJob = True
-# Make sure you request enough disk for the container image in addition to your other input files
-request_cpus = 50
-request_memory = 120GB
-request_disk = 100GB      
+#+LongJob = True
 
-#queue sample from samples_colette.txt
+request_cpus = 8
+request_memory = 64GB
+request_disk = 50GB      
+
 queue
