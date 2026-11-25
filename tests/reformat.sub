@@ -1,0 +1,24 @@
+universe = container
+container_image = docker://nanozoo/bbmap:38.86--9ebcbfa
+
+executable              = reformat.sh
+arguments               = $(sample)
+
+transfer_input_files    = file://ENV$(STAGING)/reads/sample_$(sample)_reads.tar.gz
+transfer_output_files = sample_$(sample)_1.fastq.gz, sample_$(sample)_2.fastq.gz
+transfer_output_remaps = "sample_$(sample)_1.fastq.gz=file://ENV$(STAGING)/reads/sample_$(sample)_1.fastq.gz;\
+	sample_$(sample)_2.fastq.gz=file://ENV$(STAGING)/reads/sample_$(sample)_2.fastq.gz"
+
+
+# Standard output, error, and HTCondor event log paths
+output                  = logs/job_$(Cluster)_$(Process).out
+error                   = logs/job_$(Cluster)_$(Process).err
+log                     = logs/job_$(Cluster).log
+
+# Resource requests
+request_cpus            = 1
+request_memory          = 2 GB
+request_disk            = 100 GB
+
+# Submit 1 instance of the job
+queue sample in (0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19)
