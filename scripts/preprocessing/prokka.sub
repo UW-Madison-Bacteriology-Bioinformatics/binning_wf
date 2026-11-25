@@ -6,7 +6,8 @@ arguments = $(request_cpus) $(sample) $(database)
 
 environment = "STAGING=$ENV(STAGING)"
 
-transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz
+#transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/$(sample)_spades_output.tar.gz
+transfer_input_files = file://$ENV(STAGING)/preprocessing/assembly/$(sample)_scaffolds.fasta
 
 transfer_output_files = prokka_out/$(sample).faa
 
@@ -18,9 +19,9 @@ output = logs/prokka_$(cluster)_$(process).out
 
 Requirements = (HasCHTCStaging == true) && (OpSysMajorVer > 7) && (HasChtcProjects == true)
 
-request_cpus = 4
-request_memory = 1GB
-request_disk = 10GB
+request_cpus = 16
+request_memory = 32GB
+request_disk = 80GB
 
 retry_request_memory = RequestMemory * 2
 
